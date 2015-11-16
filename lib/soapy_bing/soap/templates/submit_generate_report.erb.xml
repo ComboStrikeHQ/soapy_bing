@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:tns="https://bingads.microsoft.com/Reporting/v9"
+              xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+              xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <env:Header>
+        <tns:CustomerAccountId><%= account.account_id %></tns:CustomerAccountId>
+        <tns:CustomerId><%= account.customer_id %></tns:CustomerId>
+        <tns:DeveloperToken><%= account.developer_token %></tns:DeveloperToken>
+        <tns:AuthenticationToken><%= authentication_token %></tns:AuthenticationToken>
+    </env:Header>
+    <env:Body>
+        <tns:SubmitGenerateReportRequest>
+            <tns:ReportRequest xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="tns:<%= report_class %>Request">
+                <tns:Format><%= settings.format %></tns:Format>
+                <tns:Language><%= settings.language %></tns:Language>
+                <tns:ReportName><%= settings.name %></tns:ReportName>
+                <tns:ReturnOnlyCompleteData>false</tns:ReturnOnlyCompleteData>
+                <tns:Aggregation><%= settings.aggregation %></tns:Aggregation>
+                <tns:Columns>
+                     <% settings.columns.each do |column| %>
+                        <tns:<%= report_class %>Column><%= column %></tns:<%= report_class %>Column>
+                     <% end %>
+                </tns:Columns>
+                <tns:Scope>
+                    <tns:AccountIds>
+                        <arr:long><%= account.account_id %></arr:long>
+                    </tns:AccountIds>
+                </tns:Scope>
+                <tns:Time>
+                    <tns:CustomDateRangeEnd>
+                        <tns:Day><%= date_range.end.day %></tns:Day>
+                        <tns:Month><%= date_range.end.month %></tns:Month>
+                        <tns:Year><%= date_range.end.year %></tns:Year>
+                    </tns:CustomDateRangeEnd>
+                    <tns:CustomDateRangeStart>
+                        <tns:Day><%= date_range.begin.day %></tns:Day>
+                        <tns:Month><%= date_range.begin.month %></tns:Month>
+                        <tns:Year><%= date_range.begin.year %></tns:Year>
+                    </tns:CustomDateRangeStart>
+                </tns:Time>
+            </tns:ReportRequest>
+        </tns:SubmitGenerateReportRequest>
+    </env:Body>
+</env:Envelope>

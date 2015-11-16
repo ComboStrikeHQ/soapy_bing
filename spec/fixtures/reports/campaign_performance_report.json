@@ -1,0 +1,146 @@
+[
+  {
+    "HourOfDay": "0",
+    "Impressions": "3793",
+    "Clicks": "1599",
+    "Spend": "72.65"
+  },
+  {
+    "HourOfDay": "1",
+    "Impressions": "3560",
+    "Clicks": "1429",
+    "Spend": "65.38"
+  },
+  {
+    "HourOfDay": "2",
+    "Impressions": "3177",
+    "Clicks": "1275",
+    "Spend": "57.92"
+  },
+  {
+    "HourOfDay": "3",
+    "Impressions": "2194",
+    "Clicks": "849",
+    "Spend": "38.68"
+  },
+  {
+    "HourOfDay": "4",
+    "Impressions": "1393",
+    "Clicks": "531",
+    "Spend": "24.14"
+  },
+  {
+    "HourOfDay": "5",
+    "Impressions": "765",
+    "Clicks": "247",
+    "Spend": "11.07"
+  },
+  {
+    "HourOfDay": "6",
+    "Impressions": "393",
+    "Clicks": "141",
+    "Spend": "6.31"
+  },
+  {
+    "HourOfDay": "7",
+    "Impressions": "152",
+    "Clicks": "55",
+    "Spend": "2.46"
+  },
+  {
+    "HourOfDay": "8",
+    "Impressions": "86",
+    "Clicks": "25",
+    "Spend": "1.12"
+  },
+  {
+    "HourOfDay": "9",
+    "Impressions": "16",
+    "Clicks": "6",
+    "Spend": "0.27"
+  },
+  {
+    "HourOfDay": "10",
+    "Impressions": "6",
+    "Clicks": "3",
+    "Spend": "0.13"
+  },
+  {
+    "HourOfDay": "11",
+    "Impressions": "6",
+    "Clicks": "2",
+    "Spend": "0.09"
+  },
+  {
+    "HourOfDay": "12",
+    "Impressions": "36",
+    "Clicks": "18",
+    "Spend": "0.80"
+  },
+  {
+    "HourOfDay": "13",
+    "Impressions": "115",
+    "Clicks": "58",
+    "Spend": "2.58"
+  },
+  {
+    "HourOfDay": "14",
+    "Impressions": "754",
+    "Clicks": "332",
+    "Spend": "14.89"
+  },
+  {
+    "HourOfDay": "15",
+    "Impressions": "934",
+    "Clicks": "434",
+    "Spend": "19.63"
+  },
+  {
+    "HourOfDay": "16",
+    "Impressions": "1177",
+    "Clicks": "525",
+    "Spend": "23.63"
+  },
+  {
+    "HourOfDay": "17",
+    "Impressions": "1127",
+    "Clicks": "528",
+    "Spend": "23.80"
+  },
+  {
+    "HourOfDay": "18",
+    "Impressions": "1107",
+    "Clicks": "509",
+    "Spend": "22.88"
+  },
+  {
+    "HourOfDay": "19",
+    "Impressions": "1281",
+    "Clicks": "615",
+    "Spend": "27.77"
+  },
+  {
+    "HourOfDay": "20",
+    "Impressions": "1718",
+    "Clicks": "789",
+    "Spend": "35.56"
+  },
+  {
+    "HourOfDay": "21",
+    "Impressions": "2472",
+    "Clicks": "1207",
+    "Spend": "54.23"
+  },
+  {
+    "HourOfDay": "22",
+    "Impressions": "3660",
+    "Clicks": "1621",
+    "Spend": "73.08"
+  },
+  {
+    "HourOfDay": "23",
+    "Impressions": "3843",
+    "Clicks": "1754",
+    "Spend": "79.54"
+  }
+]
