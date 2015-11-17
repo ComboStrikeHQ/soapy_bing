@@ -1,4 +1,5 @@
 require 'ostruct'
+require 'uri'
 require 'httparty'
 require 'zip'
 
@@ -8,6 +9,7 @@ module SoapyBing
       class Base
         class UnknownParserError < StandardError; end
         include Helpers::ClassName
+        include Helpers::SSLVersion
 
         DEFAULT_REPORT_SETTINGS = {
           format:      'Csv',
@@ -62,7 +64,9 @@ module SoapyBing
         end
 
         def download_io
-          StringIO.new HTTParty.get(download_url).body
+          https = URI.parse(download_url).scheme == 'https'
+          request_options = https ? { ssl_version: ssl_version } : {}
+          StringIO.new HTTParty.get(download_url, request_options).body
         end
 
         def request_id
