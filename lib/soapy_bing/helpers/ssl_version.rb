@@ -3,7 +3,7 @@ require 'openssl'
 module SoapyBing
   module Helpers
     module SSLVersion
-      DEFAULT_SSL_VERSION = :SSLv3
+      DEFAULT_SSL_VERSION = :TLSv1
 
       def ssl_version
         if OpenSSL::SSL::SSLContext::METHODS.include? DEFAULT_SSL_VERSION
