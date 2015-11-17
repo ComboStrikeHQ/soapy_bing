@@ -1,5 +1,5 @@
 require 'ostruct'
-require 'open-uri'
+require 'httparty'
 require 'zip'
 
 module SoapyBing
@@ -55,10 +55,14 @@ module SoapyBing
 
         def report_body
           @report_body ||=
-            Zip::InputStream.open(OpenURI.open_uri(download_url)) do |archive_io|
+            Zip::InputStream.open(download_io) do |archive_io|
               file_io = archive_io.get_next_entry.get_input_stream
               file_io.read
             end
+        end
+
+        def download_io
+          StringIO.new HTTParty.get(download_url).body
         end
 
         def request_id
