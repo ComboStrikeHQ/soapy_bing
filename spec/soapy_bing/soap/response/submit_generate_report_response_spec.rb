@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Soap::Response::SubmitGenerateReportResponse do
   let(:request_id) { 'foobarbazqux' }
   let(:response_hash) do

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module SoapyBing
   class ParamGuard
     class ParamRequiredError < StandardError; end
@@ -8,7 +9,7 @@ module SoapyBing
     end
 
     def require!(name)
-      local_options.fetch(name, ENV[env_var_name(name)]) || fail(ParamRequiredError, err_msg(name))
+      local_options.fetch(name, ENV[env_var_name(name)]) || raise(ParamRequiredError, err_msg(name))
     end
 
     private

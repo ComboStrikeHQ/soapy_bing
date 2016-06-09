@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Soap::Request::Base do
   let(:req_context) { { foo: 'Bar' } }
   subject { described_class.new(context: req_context) }

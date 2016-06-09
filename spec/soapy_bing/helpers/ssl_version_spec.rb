@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Helpers::SSLVersion do
   describe '#ssl_version' do
     subject { stub_const('MyClass', Class.new.include(described_class)).new.ssl_version }

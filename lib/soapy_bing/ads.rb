@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'soapy_bing/ads/reports'
 
 module SoapyBing

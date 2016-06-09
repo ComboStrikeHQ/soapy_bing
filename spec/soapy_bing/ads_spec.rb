@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Ads do
   let(:oauth) do
     { client_id: 'foo', client_secret: 'bar', refresh_token: 'baz' }

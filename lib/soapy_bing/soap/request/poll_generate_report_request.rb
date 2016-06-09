@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module SoapyBing
   module Soap
     module Request
@@ -6,12 +7,12 @@ module SoapyBing
         class PendingStatusError < StandardError; end
         class PollingTimeoutError < StandardError; end
 
-        API_BASE_URL = 'https://reporting.api.bingads.microsoft.com'.freeze
+        API_BASE_URL = 'https://reporting.api.bingads.microsoft.com'
         API_VERSION = 9
         API_ENDPOINT =
-          "#{API_BASE_URL}/Api/Advertiser/Reporting/V#{API_VERSION}/ReportingService.svc".freeze
+          "#{API_BASE_URL}/Api/Advertiser/Reporting/V#{API_VERSION}/ReportingService.svc"
 
-        POLLING_TRIES = 40
+        POLLING_TRIES = 100
 
         def perform
           Retryable.retryable(tries: POLLING_TRIES, on: PendingStatusError) { poll! }
@@ -23,8 +24,8 @@ module SoapyBing
 
         def poll!
           response = Response::PollGenerateReportResponse.new(post(API_ENDPOINT))
-          fail PendingStatusError if response.pending?
-          fail FailedStatusError if response.error?
+          raise PendingStatusError if response.pending?
+          raise FailedStatusError if response.error?
           response
         end
       end

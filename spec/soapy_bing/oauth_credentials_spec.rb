@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::OauthCredentials do
   describe '#initialize' do
     subject { described_class.new(credentials) }

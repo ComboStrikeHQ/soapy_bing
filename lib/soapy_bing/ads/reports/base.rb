@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'ostruct'
 require 'uri'
 require 'httparty'
@@ -35,7 +36,7 @@ module SoapyBing
 
         def parser_class
           class_name = "#{settings.format.upcase}Parser".to_sym
-          fail UnknownParserError, class_name unless Parsers.constants.include?(class_name)
+          raise UnknownParserError, class_name unless Parsers.constants.include?(class_name)
           Parsers.const_get class_name
         end
 

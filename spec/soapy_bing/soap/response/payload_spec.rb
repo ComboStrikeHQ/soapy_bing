@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Soap::Response::Payload do
   before do
     stub_const(
@@ -12,7 +13,7 @@ RSpec.describe SoapyBing::Soap::Response::Payload do
 
   describe '#payload' do
     it 'memoize #extract_payload value' do
-      expect_any_instance_of(MyCustomResponse).to receive(:extract_payload).once.and_return(true)
+      expect(subject).to receive(:extract_payload).once.and_return(true)
       2.times { subject.payload }
     end
   end

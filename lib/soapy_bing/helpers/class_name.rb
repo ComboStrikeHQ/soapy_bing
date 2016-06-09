@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module SoapyBing
   module Helpers
     module ClassName

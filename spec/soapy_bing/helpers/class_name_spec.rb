@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Helpers::ClassName do
   describe '#class_name' do
     subject do

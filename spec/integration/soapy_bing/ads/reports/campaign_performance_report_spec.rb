@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'json'
 
 RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do

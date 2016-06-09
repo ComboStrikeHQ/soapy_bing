@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 desc 'Run specs and collect code coverage'
 task :coverage do
   ENV['COVERAGE'] = 'true'

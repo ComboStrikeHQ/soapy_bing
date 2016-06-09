@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'csv'
 
 module SoapyBing
@@ -17,7 +18,7 @@ module SoapyBing
           def rows
             @rows ||= begin
               header, *body = extract_csv_payload
-              fail FormatError if body.size != payload_rows_number
+              raise FormatError if body.size != payload_rows_number
               body.map { |row| header.zip(row).to_h }
             end
           end

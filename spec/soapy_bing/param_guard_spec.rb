@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::ParamGuard do
   describe '#require!' do
     let(:param_guard) { described_class.new(options, env_namespace: 'MY') }

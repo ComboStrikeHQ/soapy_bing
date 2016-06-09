@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Soap::Response::PollGenerateReportResponse do
   let(:url) { 'http://my-site.com' }
   let(:response_hash) do

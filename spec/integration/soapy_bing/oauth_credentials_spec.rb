@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::OauthCredentials do
   describe '#access_token' do
     context 'on successful respose', :integration do

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Soap::Response::ReportStatus do
   before do
     stub_const(

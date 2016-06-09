@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'simplecov_setup'
 
 require 'bundler/setup'

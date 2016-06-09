@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'date'
 
 RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do

@@ -1,10 +1,11 @@
+# frozen_string_literal: true
 require 'httparty'
 
 module SoapyBing
   class OauthCredentials
     class TokenRefreshError < StandardError; end
 
-    TOKEN_URL = 'https://login.live.com/oauth20_token.srf'.freeze
+    TOKEN_URL = 'https://login.live.com/oauth20_token.srf'
 
     attr_reader :client_id, :client_secret, :refresh_token, :token_url
 
@@ -24,11 +25,10 @@ module SoapyBing
 
     def request_access_token
       resp = HTTParty.post(token_url, body: access_token_params)
-      if resp.code == 200
-        resp['access_token']
-      else
-        fail TokenRefreshError
-      end
+
+      raise TokenRefreshError unless resp.code == 200
+
+      resp['access_token']
     end
 
     def access_token_params

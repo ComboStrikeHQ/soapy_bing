@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module SoapyBing
   module Soap
     module Response
@@ -7,7 +8,7 @@ module SoapyBing
         end
 
         def extract_payload
-          fail NotImplementedError
+          raise NotImplementedError
         end
       end
     end

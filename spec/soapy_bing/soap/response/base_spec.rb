@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Soap::Response::Base do
   before { stub_const('MyCustomResponse', Class.new(described_class) {}) }
   let(:response_body) { 'Some response body' }

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Soap::TemplateRenderer do
   describe '::TEMPLATE_PATH' do
     let(:files) { Dir.glob(File.join(described_class::TEMPLATE_PATH, '*.erb.xml')) }

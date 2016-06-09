@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'json'
 require 'csv'
 
@@ -20,7 +21,7 @@ RSpec.describe SoapyBing::Ads::Reports::Parsers::CSVParser do
       end
     end
 
-    context 'on malformed CSV data 'do
+    context 'on malformed CSV data' do
       let(:csv_data) { '"co", "' }
 
       it 'throws exception CSV::MalformedCSVError' do

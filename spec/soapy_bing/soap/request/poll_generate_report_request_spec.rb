@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe SoapyBing::Soap::Request::PollGenerateReportRequest do
   describe '#perform' do
     let(:response_body) do
@@ -16,13 +17,13 @@ RSpec.describe SoapyBing::Soap::Request::PollGenerateReportRequest do
     end
 
     let(:pending_response_body) do
-      response_body['Envelope']['Body']['PollGenerateReportResponse']['ReportRequestStatus']
-        .merge!('Status' => 'Pending')
+      response_body['Envelope']['Body']['PollGenerateReportResponse'] \
+        ['ReportRequestStatus']['Status'] = 'Pending'
       response_body
     end
     let(:successful_response_body) do
-      response_body['Envelope']['Body']['PollGenerateReportResponse']['ReportRequestStatus']
-        .merge!('Status' => 'Success')
+      response_body['Envelope']['Body']['PollGenerateReportResponse'] \
+        ['ReportRequestStatus']['Status'] = 'Success'
       response_body
     end
 
