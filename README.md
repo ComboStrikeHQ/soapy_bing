@@ -55,6 +55,25 @@ SoapyBing::Ads.new(
 )
 ```
 
+### Generate a refresh token
+
+First go to the following url using your Client Id and Redirect Url.
+
+    https://login.live.com/oauth20_authorize.srf?client_id=<YOUR_CLIENT_ID>&scope=bingads.manage&response_type=code&redirect_uri=<YOUR_REDIRECT_URL>&state=ClientStateGoesHere
+
+Make a note of the code parameter that is present in the redirect url. Execute the following curl command to get a new Refresh token.
+
+```sh
+curl -v -XPOST \
+  -d client_id=<YOUR_CLIENT_ID> \
+  -d code=<THE_CODE_FROM_THE_FIRST_CALL>
+  -d grant_type=authorization_code \
+  -d redirect_uri=<YOUR_REDIRECT_URL> \
+  -d client_secret=<YOUR_CLIENT_SECRET> \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  https://login.live.com/oauth20_token.srf
+```
+
 ## Links
 * MS Live Applications [https://account.live.com/developers/applications](https://account.live.com/developers/applications)
 * Bing Ads User Authentication with OAuth [https://msdn.microsoft.com/en-us/library/bing-ads-user-authentication-oauth-guide.aspx](https://msdn.microsoft.com/en-us/library/bing-ads-user-authentication-oauth-guide.aspx)
