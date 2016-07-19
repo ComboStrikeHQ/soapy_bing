@@ -1,0 +1,218 @@
+[
+  {
+    "i:type": "TextAd",
+    "DevicePreference": "0",
+    "EditorialStatus": "Active",
+    "FinalAppUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "FinalMobileUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "FinalUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "ForwardCompatibilityMap": {
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/System.Collections.Generic"
+    },
+    "Id": "11792482357",
+    "Status": "Paused",
+    "TrackingUrlTemplate": {
+      "i:nil": "true"
+    },
+    "Type": "Text",
+    "UrlCustomParameters": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "DestinationUrl": "a2g-secure.com/?E=oGFdRFUaQWMI%2f37zhgyAZQ2%2fmAc7YHJa&s1=AJ&s3={AdId}&s4={keyword}",
+    "DisplayUrl": "animaljam.com",
+    "Text": "Online playground for boys and girls who love animals. Register Now!",
+    "Title": "Animal Jam free to play"
+  },
+  {
+    "i:type": "TextAd",
+    "DevicePreference": "0",
+    "EditorialStatus": "Active",
+    "FinalAppUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "FinalMobileUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "FinalUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "ForwardCompatibilityMap": {
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/System.Collections.Generic"
+    },
+    "Id": "11792482358",
+    "Status": "Active",
+    "TrackingUrlTemplate": {
+      "i:nil": "true"
+    },
+    "Type": "Text",
+    "UrlCustomParameters": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "DestinationUrl": "a2g-secure.com/?E=oGFdRFUaQWMI%2f37zhgyAZQ2%2fmAc7YHJa&s1=AJ&s3={AdId}&s4={keyword}",
+    "DisplayUrl": "animaljam.com",
+    "Text": "Adopt pets, chat with friends, play games and more. Play for free now!",
+    "Title": "Play Wild in Animal Jam"
+  },
+  {
+    "i:type": "TextAd",
+    "DevicePreference": "0",
+    "EditorialStatus": "Active",
+    "FinalAppUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "FinalMobileUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "FinalUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "ForwardCompatibilityMap": {
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/System.Collections.Generic"
+    },
+    "Id": "11792482359",
+    "Status": "Paused",
+    "TrackingUrlTemplate": {
+      "i:nil": "true"
+    },
+    "Type": "Text",
+    "UrlCustomParameters": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "DestinationUrl": "a2g-secure.com/?E=oGFdRFUaQWMI%2f37zhgyAZQ2%2fmAc7YHJa&s1=AJ&s3={AdId}&s4={keyword}",
+    "DisplayUrl": "animaljam.com",
+    "Text": "Have fun with National Geographic's Animal Jam - play now for free!",
+    "Title": "Play Animal Jam Online"
+  },
+  {
+    "i:type": "TextAd",
+    "DevicePreference": "0",
+    "EditorialStatus": "Active",
+    "FinalAppUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "FinalMobileUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "FinalUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "ForwardCompatibilityMap": {
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/System.Collections.Generic",
+      "KeyValuePairOfstringstring": {
+        "key": "NativePreference",
+        "value": "False"
+      }
+    },
+    "Id": "13055725676",
+    "Status": "Active",
+    "TrackingUrlTemplate": {
+      "i:nil": "true"
+    },
+    "Type": "Text",
+    "UrlCustomParameters": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "DestinationUrl": "a2g-secure.com/?E=oGFdRFUaQWMI%2f37zhgyAZQ2%2fmAc7YHJa&s1=AJ&s3={AdId}&s4={keyword}",
+    "DisplayUrl": "AnimalJam.com",
+    "Text": "Adopt pets, chat with friends, play games and have fun. Play now!",
+    "Title": "Play Wild in Animal Jam"
+  },
+  {
+    "i:type": "TextAd",
+    "DevicePreference": "0",
+    "EditorialStatus": "Active",
+    "FinalAppUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "FinalMobileUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "FinalUrls": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "ForwardCompatibilityMap": {
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/System.Collections.Generic",
+      "KeyValuePairOfstringstring": {
+        "key": "NativePreference",
+        "value": "False"
+      }
+    },
+    "Id": "13089495292",
+    "Status": "Paused",
+    "TrackingUrlTemplate": {
+      "i:nil": "true"
+    },
+    "Type": "Text",
+    "UrlCustomParameters": {
+      "i:nil": "true",
+      "xmlns:a": "http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "DestinationUrl": "a2g-secure.com/?E=oGFdRFUaQWMI%2f37zhgyAZQ2%2fmAc7YHJa&s1=AJ&s3={AdId}&s4={keyword}",
+    "DisplayUrl": "AnimalJam.com",
+    "Text": "Virtual pets, parties and more. Join the fun. Play Wild!",
+    "Title": "Play Wild in Animal Jam"
+  },
+  {
+    "i:type":"TextAd",
+    "DevicePreference":"0",
+    "EditorialStatus":"Active",
+    "FinalAppUrls":{
+      "i:nil":"true",
+      "xmlns:a":"http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "FinalMobileUrls":{
+      "i:nil":"true",
+      "xmlns:a":"http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "FinalUrls":{
+      "i:nil":"true",
+      "xmlns:a":"http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+    },
+    "ForwardCompatibilityMap":{
+      "xmlns:a":"http://schemas.datacontract.org/2004/07/System.Collections.Generic",
+      "KeyValuePairOfstringstring":{
+        "key":"NativePreference",
+        "value":"False"
+      }
+    },
+    "Id":"13950954205",
+    "Status":"Active",
+    "TrackingUrlTemplate":{
+      "i:nil":"true"
+    },
+    "Type":"Text",
+    "UrlCustomParameters":{
+      "i:nil":"true",
+      "xmlns:a":"http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10"
+    },
+    "DestinationUrl":"a2g-secure.com/?E=oGFdRFUaQWMI%2f37zhgyAZQ2%2fmAc7YHJa&s1=AJ&s3={AdId}&s4={keyword}",
+    "DisplayUrl":"PlayWild.AnimalJam.com",
+    "Text":"Adopt pets, chat with friends, play games and more. Play for free now!",
+    "Title":"Play Wild in Animal Jam"
+  }
+]
