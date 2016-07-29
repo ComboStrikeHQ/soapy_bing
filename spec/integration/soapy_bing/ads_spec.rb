@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-RSpec.describe SoapyBing::Ads, :integration do
+RSpec.describe SoapyBing::Ads do
   let(:campaign_id) { 91834220 }
   let(:ad_group_id) { 4464286758 }
   let(:fixture_payload) { JSON.load(File.read(File.join('spec', 'fixtures', fixture_file))) }

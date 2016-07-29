@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require 'active_support/core_ext/array/wrap'
-
 module SoapyBing
   module Soap
     module Response
