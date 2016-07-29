@@ -79,7 +79,7 @@ RSpec.describe SoapyBing::OauthCredentials do
 
   describe '#access_token' do
     let(:credentials) { { client_id: 'foo', client_secret: 'bar', refresh_token: 'baz' } }
-    let(:response) { double(:response) }
+    let(:response) { double(:response) } # rubocop:disable RSpec/VerifiedDoubles
 
     before do
       expect(response).to receive(:code).once.and_return(status_code)
