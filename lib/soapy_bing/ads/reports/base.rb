@@ -17,7 +17,7 @@ module SoapyBing
           language:    'English',
           name:        'MyReport',
           aggregation: 'HourOfDay',
-          columns:     %w(TimePeriod CampaignName Impressions Clicks Spend)
+          columns:     %w(TimePeriod CampaignName Impressions Clicks Spend CampaignId)
         }.freeze
 
         attr_reader :oauth_credentials, :account, :settings

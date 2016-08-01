@@ -1,0 +1,111 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://login.live.com/oauth20_token.srf
+    body:
+      encoding: UTF-8
+      string: client_id=bing-ads-oauth-client-id&client_secret=bing-ads-oauth-client-secret&grant_type=refresh_token&refresh_token=bing-ads-oauth-refresh-token
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1509'
+      Content-Type:
+      - application/json
+      Server:
+      - Microsoft-IIS/8.5
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Tue, 19 Jul 2016 12:10:20 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"token_type":"bearer","expires_in":3600,"scope":"bingads.manage","access_token":"bing-ads-oauth-authentication-token","refresh_token":"bing-ads-oauth-refresh-token","user_id":"bing-ads-oauth-user-id"}'
+    http_version: 
+  recorded_at: Tue, 19 Jul 2016 12:10:20 GMT
+- request:
+    method: post
+    uri: https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V10/CampaignManagementService.svc
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <env:Envelope xmlns:tns="https://bingads.microsoft.com/CampaignManagement/v10"
+                      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+            <env:Header>
+                <tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId>
+                <tns:CustomerId>bing-ads-customer-id</tns:CustomerId>
+                <tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken>
+                <tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken>
+            </env:Header>
+            <env:Body>
+                <tns:GetTargetsByCampaignIdsRequest>
+                    <tns:CampaignIds>
+                        <arr:long>91834220</arr:long>
+                    </tns:CampaignIds>
+                </tns:GetTargetsByCampaignIdsRequest>
+            </env:Body>
+        </env:Envelope>
+    headers:
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Soapaction:
+      - GetTargetsByCampaignIds
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Length:
+      - '1922'
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 19 Jul 2016 12:10:20 GMT
+    body:
+      encoding: UTF-8
+      string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
+        xmlns:h="https://bingads.microsoft.com/CampaignManagement/v10">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><GetTargetsByCampaignIdsResponse
+        xmlns="https://bingads.microsoft.com/CampaignManagement/v10"><PartialErrors
+        xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/><Targets xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Target><Age
+        i:nil="true"/><DayTime i:nil="true"/><DeviceOS><Bids><DeviceOSTargetBid><BidAdjustment>0</BidAdjustment><DeviceName>Computers</DeviceName><OSNames
+        i:nil="true" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/></DeviceOSTargetBid><DeviceOSTargetBid><BidAdjustment>-100</BidAdjustment><DeviceName>Smartphones</DeviceName><OSNames
+        i:nil="true" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/></DeviceOSTargetBid><DeviceOSTargetBid><BidAdjustment>0</BidAdjustment><DeviceName>Tablets</DeviceName><OSNames
+        i:nil="true" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/></DeviceOSTargetBid></Bids></DeviceOS><ForwardCompatibilityMap
+        xmlns:a="http://schemas.datacontract.org/2004/07/System.Collections.Generic"/><Gender
+        i:nil="true"/><Id>462821758</Id><IsLibraryTarget>true</IsLibraryTarget><Location><CityTarget
+        i:nil="true"/><CountryTarget><Bids><CountryTargetBid><BidAdjustment>0</BidAdjustment><CountryAndRegion>AU</CountryAndRegion><IsExcluded>false</IsExcluded></CountryTargetBid><CountryTargetBid><BidAdjustment>0</BidAdjustment><CountryAndRegion>US</CountryAndRegion><IsExcluded>true</IsExcluded></CountryTargetBid></Bids></CountryTarget><IntentOption>PeopleIn</IntentOption><MetroAreaTarget
+        i:nil="true"/><PostalCodeTarget i:nil="true"/><RadiusTarget i:nil="true"/><StateTarget
+        i:nil="true"/></Location><Name>targetgroup1</Name></Target></Targets></GetTargetsByCampaignIdsResponse></s:Body></s:Envelope>
+    http_version: 
+  recorded_at: Tue, 19 Jul 2016 12:10:21 GMT
+recorded_with: VCR 3.0.3

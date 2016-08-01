@@ -39,8 +39,8 @@ RSpec.describe SoapyBing::Soap::Request::PollGenerateReportRequest do
       described_class
         .new(
           context: {
-            oauth: double(:oauth_credentials).as_null_object,
-            account: double(:account).as_null_object
+            oauth: instance_double(SoapyBing::OauthCredentials).as_null_object,
+            account: instance_double(SoapyBing::Account).as_null_object
           }
         )
         .perform

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:tns="https://bingads.microsoft.com/CampaignManagement/v10"
+              xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+              xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <env:Header>
+        <tns:CustomerAccountId><%= account.account_id %></tns:CustomerAccountId>
+        <tns:CustomerId><%= account.customer_id %></tns:CustomerId>
+        <tns:DeveloperToken><%= account.developer_token %></tns:DeveloperToken>
+        <tns:AuthenticationToken><%= authentication_token %></tns:AuthenticationToken>
+    </env:Header>
+    <env:Body>
+        <tns:GetTargetsByCampaignIdsRequest>
+            <tns:CampaignIds>
+              <% campaign_ids.each do |campaign_id| %>
+                <arr:long><%= campaign_id %></arr:long>
+              <% end %>
+            </tns:CampaignIds>
+        </tns:GetTargetsByCampaignIdsRequest>
+    </env:Body>
+</env:Envelope>

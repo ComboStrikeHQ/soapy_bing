@@ -28,7 +28,7 @@ RSpec.describe SoapyBing::Soap::Request::Base do
   describe '#default_body' do
     subject { my_custom_request.default_body }
     it 'renders request body template' do
-      renderer = double('Renderer')
+      renderer = instance_double(SoapyBing::Soap::TemplateRenderer)
       expect(SoapyBing::Soap::TemplateRenderer).to receive(:new)
         .with(hash_including(req_context)).and_return(renderer)
       expect(renderer).to receive(:render).with('my_custom')

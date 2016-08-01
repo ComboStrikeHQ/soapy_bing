@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:tns="https://bingads.microsoft.com/CampaignManagement/v10"
+              xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Header>
+        <tns:CustomerAccountId><%= account.account_id %></tns:CustomerAccountId>
+        <tns:CustomerId><%= account.customer_id %></tns:CustomerId>
+        <tns:DeveloperToken><%= account.developer_token %></tns:DeveloperToken>
+        <tns:AuthenticationToken><%= authentication_token %></tns:AuthenticationToken>
+    </env:Header>
+    <env:Body>
+        <tns:GetAdsByAdGroupIdRequest>
+          <tns:AdGroupId><%= ad_group_id %></tns:AdGroupId>
+        </tns:GetAdsByAdGroupIdRequest>
+    </env:Body>
+</env:Envelope>
