@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 RSpec.describe SoapyBing::OauthCredentials do
-  describe '#initialize' do
-    subject { described_class.new(credentials) }
+  subject(:oauth_credentials) { described_class.new(credentials) }
 
+  describe '#initialize' do
     context 'when oauth credentials passed explicitly' do
       let(:credentials) { { client_id: 'foo', client_secret: 'bar', refresh_token: 'baz' } }
       before do
@@ -13,15 +13,15 @@ RSpec.describe SoapyBing::OauthCredentials do
       end
 
       it '#client_id is set' do
-        expect(subject.client_id).to eq 'foo'
+        expect(oauth_credentials.client_id).to eq 'foo'
       end
 
       it '#client_secret is set' do
-        expect(subject.client_secret).to eq 'bar'
+        expect(oauth_credentials.client_secret).to eq 'bar'
       end
 
       it '#refresh_token is set' do
-        expect(subject.refresh_token).to eq 'baz'
+        expect(oauth_credentials.refresh_token).to eq 'baz'
       end
     end
 
@@ -35,15 +35,15 @@ RSpec.describe SoapyBing::OauthCredentials do
       end
 
       it '#client_id is set' do
-        expect(subject.client_id).to eq 'foo_env'
+        expect(oauth_credentials.client_id).to eq 'foo_env'
       end
 
       it '#client_secret is set' do
-        expect(subject.client_secret).to eq 'bar_env'
+        expect(oauth_credentials.client_secret).to eq 'bar_env'
       end
 
       it '#refresh_token is set' do
-        expect(subject.refresh_token).to eq 'baz_env'
+        expect(oauth_credentials.refresh_token).to eq 'baz_env'
       end
     end
 
@@ -59,19 +59,19 @@ RSpec.describe SoapyBing::OauthCredentials do
 
       it 'throws exception on missing :client_id' do
         credentials.delete(:client_id)
-        expect { subject }.to raise_error SoapyBing::ParamGuard::ParamRequiredError,
+        expect { oauth_credentials }.to raise_error SoapyBing::ParamGuard::ParamRequiredError,
           'client_id have to be passed explicitly or via ENV[\'BING_ADS_OAUTH_CLIENT_ID\']'
       end
 
       it 'throws exception on missing :client_secret' do
         credentials.delete(:client_secret)
-        expect { subject }.to raise_error SoapyBing::ParamGuard::ParamRequiredError,
+        expect { oauth_credentials }.to raise_error SoapyBing::ParamGuard::ParamRequiredError,
           'client_secret have to be passed explicitly or via ENV[\'BING_ADS_OAUTH_CLIENT_SECRET\']'
       end
 
       it 'throws exception on missing :refresh_token' do
         credentials.delete(:refresh_token)
-        expect { subject }.to raise_error SoapyBing::ParamGuard::ParamRequiredError,
+        expect { oauth_credentials }.to raise_error SoapyBing::ParamGuard::ParamRequiredError,
           'refresh_token have to be passed explicitly or via ENV[\'BING_ADS_OAUTH_REFRESH_TOKEN\']'
       end
     end
@@ -92,7 +92,7 @@ RSpec.describe SoapyBing::OauthCredentials do
       before { expect(response).to receive(:[]).once.with('access_token').and_return('my-token') }
 
       it 'memoizes http request response' do
-        2.times { expect(subject.access_token).to eq 'my-token' }
+        2.times { expect(oauth_credentials.access_token).to eq 'my-token' }
       end
     end
 
@@ -100,7 +100,7 @@ RSpec.describe SoapyBing::OauthCredentials do
       let(:status_code) { 401 }
 
       it 'throws exception in case of bad status code' do
-        expect { subject.access_token }.to raise_error(
+        expect { oauth_credentials.access_token }.to raise_error(
           SoapyBing::OauthCredentials::TokenRefreshError
         )
       end

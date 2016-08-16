@@ -17,12 +17,12 @@ RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
   let(:fixtured_payload) { JSON.load(File.read(payload_fixture_path)) }
 
   describe '#rows' do
-    subject { report.rows }
+    subject(:rows) { report.rows }
 
     context 'when there is a successfull response during polling', :integration do
       it 'responds with report rows',
         vcr: { cassette_name: 'campaign_performance_report/with_successful_status' } do
-        expect(subject).to eq fixtured_payload
+        expect(rows).to eq fixtured_payload
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
 
       it 'throws exception PollingTimeoutError',
         vcr: { cassette_name: 'campaign_performance_report/with_pending_status' } do
-        expect { subject }.to raise_error(
+        expect { rows }.to raise_error(
           SoapyBing::Soap::Request::PollGenerateReportRequest::PollingTimeoutError
         )
       end

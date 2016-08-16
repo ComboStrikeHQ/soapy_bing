@@ -5,9 +5,9 @@ RSpec.describe SoapyBing::Soap::Response::Base do
   let(:my_custom_response) { MyCustomResponse.new(response_body) }
 
   describe '#body' do
-    subject { my_custom_response.body }
+    subject(:body) { my_custom_response.body }
     it 'keeps initialized value' do
-      expect(subject).to eq response_body
+      expect(body).to eq response_body
     end
   end
 end

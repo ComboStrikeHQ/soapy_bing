@@ -3,7 +3,7 @@ require 'date'
 
 RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
   let(:report_options) { { oauth_credentials: nil, account: nil } }
-  subject { described_class.new report_options }
+  subject(:report) { described_class.new report_options }
 
   describe '#initialize' do
     let(:wrong_date) { 'wrong_date' }
@@ -13,7 +13,7 @@ RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
 
       let(:start_date) { 'wrong_date' }
       it 'throws exception' do
-        expect { subject }.to raise_error(ArgumentError, 'invalid date')
+        expect { report }.to raise_error(ArgumentError, 'invalid date')
       end
     end
   end
@@ -24,18 +24,18 @@ RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
     before { report_options.merge!(date_start: date_start, date_end: date_end) }
 
     it 'is instance of Range' do
-      expect(subject.date_range).to be_an_instance_of Range
+      expect(report.date_range).to be_an_instance_of Range
     end
 
     context 'begin' do
       it 'keeps initialized value' do
-        expect(subject.date_range.begin).to eq Date.parse(date_start)
+        expect(report.date_range.begin).to eq Date.parse(date_start)
       end
     end
 
     context 'end' do
       it 'keeps initialized value' do
-        expect(subject.date_range.end).to eq Date.parse(date_end)
+        expect(report.date_range.end).to eq Date.parse(date_end)
       end
     end
   end

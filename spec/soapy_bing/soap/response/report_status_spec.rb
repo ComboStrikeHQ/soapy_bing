@@ -21,7 +21,7 @@ RSpec.describe SoapyBing::Soap::Response::ReportStatus do
       }
     }
   end
-  let(:subject) { MyCustomResponse.new(response_hash) }
+  subject(:response) { MyCustomResponse.new(response_hash) }
 
   describe 'status' do
     before do
@@ -33,19 +33,19 @@ RSpec.describe SoapyBing::Soap::Response::ReportStatus do
       let(:status) { 'Error' }
 
       it '#status is Error' do
-        expect(subject.status).to eq status
+        expect(response.status).to eq status
       end
 
       it '#error? is false' do
-        expect(subject).to be_error
+        expect(response).to be_error
       end
 
       it '#success? is false' do
-        expect(subject).not_to be_success
+        expect(response).not_to be_success
       end
 
       it '#pending? is false' do
-        expect(subject).not_to be_pending
+        expect(response).not_to be_pending
       end
     end
 
@@ -53,19 +53,19 @@ RSpec.describe SoapyBing::Soap::Response::ReportStatus do
       let(:status) { 'Success' }
 
       it '#status is Success' do
-        expect(subject.status).to eq status
+        expect(response.status).to eq status
       end
 
       it '#error? is false' do
-        expect(subject).not_to be_error
+        expect(response).not_to be_error
       end
 
       it '#success? is true' do
-        expect(subject).to be_success
+        expect(response).to be_success
       end
 
       it '#pending? is false' do
-        expect(subject).not_to be_pending
+        expect(response).not_to be_pending
       end
     end
 
@@ -73,19 +73,19 @@ RSpec.describe SoapyBing::Soap::Response::ReportStatus do
       let(:status) { 'Pending' }
 
       it '#status is Pending' do
-        expect(subject.status).to eq status
+        expect(response.status).to eq status
       end
 
       it '#error? is false' do
-        expect(subject).not_to be_error
+        expect(response).not_to be_error
       end
 
       it '#success? is false' do
-        expect(subject).not_to be_success
+        expect(response).not_to be_success
       end
 
       it '#pending? is true' do
-        expect(subject).to be_pending
+        expect(response).to be_pending
       end
     end
   end

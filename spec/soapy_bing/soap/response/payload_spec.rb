@@ -9,18 +9,18 @@ RSpec.describe SoapyBing::Soap::Response::Payload do
     )
   end
 
-  subject { MyCustomResponse.new }
+  subject(:response) { MyCustomResponse.new }
 
   describe '#payload' do
     it 'memoize #extract_payload value' do
-      expect(subject).to receive(:extract_payload).once.and_return(true)
-      2.times { subject.payload }
+      expect(response).to receive(:extract_payload).once.and_return(true)
+      2.times { response.payload }
     end
   end
 
   describe '#extract_payload' do
     it 'throws NotImplementedError' do
-      expect { subject.extract_payload }.to raise_error NotImplementedError
+      expect { response.extract_payload }.to raise_error NotImplementedError
     end
   end
 end
