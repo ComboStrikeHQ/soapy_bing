@@ -8,7 +8,7 @@ Client library for [Bing Ads API](https://msdn.microsoft.com/en-us/library/bing-
 In your Gemfile
 
 ```ruby
-gem 'soapy-bing', git: 'https://github.com/ad2games/soapy-bing'
+gem 'soapy_bing', git: 'https://github.com/ad2games/soapy_bing'
 ```
 
 ## Usage Examples
