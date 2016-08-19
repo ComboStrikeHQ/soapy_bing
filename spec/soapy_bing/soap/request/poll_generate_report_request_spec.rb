@@ -35,7 +35,7 @@ RSpec.describe SoapyBing::Soap::Request::PollGenerateReportRequest do
       end
     end
 
-    subject do
+    subject(:perform) do
       described_class
         .new(
           context: {
@@ -48,13 +48,13 @@ RSpec.describe SoapyBing::Soap::Request::PollGenerateReportRequest do
 
     it 'polls until successful response' do
       expect(HTTParty).to receive(:post).exactly(3).times
-      expect(subject.payload).to eq 'http://example.com'
+      expect(perform.payload).to eq 'http://example.com'
     end
 
     it 'throws PollingTimeoutError when exceeded polling tries' do
       stub_const('SoapyBing::Soap::Request::PollGenerateReportRequest::POLLING_TRIES', 1)
       expect(HTTParty).to receive(:post).once
-      expect { subject }.to raise_error described_class::PollingTimeoutError
+      expect { perform }.to raise_error described_class::PollingTimeoutError
     end
   end
 end

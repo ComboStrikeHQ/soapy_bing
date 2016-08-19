@@ -12,9 +12,9 @@ RSpec.describe SoapyBing::Soap::Response::SubmitGenerateReportResponse do
       }
     }
   end
-  let(:subject) { described_class.new(response_hash) }
+  subject(:response) { described_class.new(response_hash) }
 
   it '#extract_payload returns request id' do
-    expect(subject.extract_payload).to eq request_id
+    expect(response.extract_payload).to eq request_id
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 RSpec.describe SoapyBing::Helpers::ClassName do
   describe '#class_name' do
-    subject do
+    subject(:class_name) do
       stub_const(
         'OUTERNS::INNERNS::MyClass',
         Class.new.include(described_class)
@@ -9,7 +9,7 @@ RSpec.describe SoapyBing::Helpers::ClassName do
     end
 
     it 'resolves class name' do
-      expect(subject).to eq 'MyClass'
+      expect(class_name).to eq 'MyClass'
     end
   end
 end

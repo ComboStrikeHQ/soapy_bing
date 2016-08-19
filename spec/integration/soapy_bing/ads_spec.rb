@@ -9,24 +9,24 @@ RSpec.describe SoapyBing::Ads do
   describe '#get_ad_groups_by_campaign_id', :vcr do
     let(:fixture_file) { 'get_ad_groups_by_campaign_id.json' }
 
-    subject { instance.get_ad_groups_by_campaign_id(campaign_id) }
+    subject(:ad_groups) { instance.get_ad_groups_by_campaign_id(campaign_id) }
 
-    it { expect(subject).to eq(fixture_payload) }
+    it { expect(ad_groups).to eq(fixture_payload) }
   end
 
   describe '#get_ads_by_ad_group_id', :vcr do
     let(:fixture_file) { 'get_ads_by_ad_group_id.json' }
 
-    subject { instance.get_ads_by_ad_group_id(ad_group_id) }
+    subject(:ads) { instance.get_ads_by_ad_group_id(ad_group_id) }
 
-    it { expect(subject).to eq(fixture_payload) }
+    it { expect(ads).to eq(fixture_payload) }
   end
 
   describe '#get_targets_by_campaign_ids', :vcr do
     let(:fixture_file) { 'get_targets_by_campaign_ids.json' }
 
-    subject { instance.get_targets_by_campaign_ids([campaign_id]) }
+    subject(:targets) { instance.get_targets_by_campaign_ids([campaign_id]) }
 
-    it { expect(subject).to eq(fixture_payload) }
+    it { expect(targets).to eq(fixture_payload) }
   end
 end
