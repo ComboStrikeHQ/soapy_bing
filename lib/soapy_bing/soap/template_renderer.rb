@@ -15,7 +15,7 @@ module SoapyBing
       private
 
       def read(name)
-        File.read(File.join(TEMPLATE_PATH, "#{name}.erb.xml"))
+        File.read(File.join(TEMPLATE_PATH, "#{name}.xml.erb"))
       end
     end
   end

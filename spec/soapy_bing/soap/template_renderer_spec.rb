@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 RSpec.describe SoapyBing::Soap::TemplateRenderer do
   describe '::TEMPLATE_PATH' do
-    let(:files) { Dir.glob(File.join(described_class::TEMPLATE_PATH, '*.erb.xml')) }
+    let(:files) { Dir.glob(File.join(described_class::TEMPLATE_PATH, '*.xml.erb')) }
 
-    it 'points to folder with *.erb.xml files' do
+    it 'points to folder with *.xml.erb files' do
       expect(files.size).to be > 1
     end
   end
