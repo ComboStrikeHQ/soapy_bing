@@ -1,4 +1,4 @@
-{
+[{
   "Age": {
     "i:nil": "true"
   },
@@ -78,4 +78,4 @@
     }
   },
   "Name": "targetgroup1"
-}
+}]
