@@ -4,7 +4,7 @@ module SoapyBing
     module Response
       class SubmitGenerateReportResponse < Base
         def extract_payload
-          body['Envelope']['Body'][class_name]['ReportRequestId']
+          response['ReportRequestId']
         end
       end
     end

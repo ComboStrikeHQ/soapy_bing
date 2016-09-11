@@ -4,7 +4,7 @@ module SoapyBing
     module Response
       class GetAccountsInfoResponse < Base
         def extract_payload
-          Array.wrap(body['Envelope']['Body'][class_name]['AccountsInfo']['AccountInfo'])
+          Array.wrap(response['AccountsInfo']['AccountInfo'])
         end
       end
     end

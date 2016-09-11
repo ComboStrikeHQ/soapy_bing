@@ -4,7 +4,7 @@ module SoapyBing
     module Response
       class GetTargetsByCampaignIdsResponse < Base
         def extract_payload
-          Array.wrap(body['Envelope']['Body'][class_name]['Targets']['Target']).first
+          Array.wrap(response['Targets']['Target']).first
         end
       end
     end

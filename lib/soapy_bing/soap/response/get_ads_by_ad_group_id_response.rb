@@ -4,7 +4,7 @@ module SoapyBing
     module Response
       class GetAdsByAdGroupIdResponse < Base
         def extract_payload
-          Array.wrap(body['Envelope']['Body'][class_name]['Ads']['Ad'])
+          Array.wrap(response['Ads']['Ad'])
         end
       end
     end
