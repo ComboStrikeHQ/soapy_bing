@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require 'json'
-require 'csv'
 
 RSpec.describe SoapyBing::Ads::Bulk::Parsers::CSVParser do
   describe '#rows' do
