@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 require 'ostruct'
-require 'uri'
-require 'httparty'
-require 'zip'
 
 module SoapyBing
   class Ads
@@ -10,7 +7,6 @@ module SoapyBing
       class Base
         class UnknownParserError < StandardError; end
         include Helpers::ClassName
-        include Helpers::SSLVersion
 
         DEFAULT_REPORT_SETTINGS = {
           format:      'Csv',
@@ -29,7 +25,7 @@ module SoapyBing
         end
 
         def rows
-          @rows ||= parser_class.new(report_body).rows
+          @rows ||= parser_class.new(Helpers::ZipDownloader.new(download_url).read).rows
         end
 
         private
@@ -54,20 +50,6 @@ module SoapyBing
             authentication_token: oauth_credentials.access_token,
             request_id: request_id
           }
-        end
-
-        def report_body
-          @report_body ||=
-            Zip::InputStream.open(download_io) do |archive_io|
-              file_io = archive_io.get_next_entry.get_input_stream
-              file_io.read
-            end
-        end
-
-        def download_io
-          https = URI.parse(download_url).scheme == 'https'
-          request_options = https ? { ssl_version: ssl_version } : {}
-          StringIO.new HTTParty.get(download_url, request_options).body
         end
 
         def request_id

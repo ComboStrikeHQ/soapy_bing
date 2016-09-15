@@ -14,7 +14,7 @@ module SoapyBing
         end
 
         def report_status
-          body['Envelope']['Body'][class_name]['ReportRequestStatus']
+          response['ReportRequestStatus']
         end
 
         def error?

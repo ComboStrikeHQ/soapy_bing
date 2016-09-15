@@ -5,3 +5,4 @@ Gemfile.lock
 .env.local
 .env.development
 .bundle
+/pkg

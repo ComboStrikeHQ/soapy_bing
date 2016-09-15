@@ -2,9 +2,9 @@
 module SoapyBing
   module Soap
     module Response
-      class GetAccountsInfoResponse < Base
+      class DownloadCampaignsByAccountIdsResponse < Base
         def extract_payload
-          Array.wrap(response['AccountsInfo']['AccountInfo'])
+          response['DownloadRequestId']
         end
       end
     end

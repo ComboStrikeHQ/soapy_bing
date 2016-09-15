@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header xmlns="https://bingads.microsoft.com/CampaignManagement/v10">
+    <Action mustUnderstand="1">DownloadCampaignsByAccountIds</Action>
+    <AuthenticationToken i:nil="false"><%= authentication_token %></AuthenticationToken>
+    <CustomerAccountId i:nil="false"><%= account.account_id %></CustomerAccountId>
+    <CustomerId i:nil="false"><%= account.customer_id %></CustomerId>
+    <DeveloperToken i:nil="false"><%= account.developer_token %></DeveloperToken>
+  </s:Header>
+  <s:Body>
+    <DownloadCampaignsByAccountIdsRequest xmlns="https://bingads.microsoft.com/CampaignManagement/v10">
+      <AccountIds i:nil="false" xmlns:a1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <a1:long><%= account.account_id %></a1:long>
+      </AccountIds>
+      <CompressionType i:nil="false">Zip</CompressionType>
+      <DataScope>EntityData</DataScope>
+      <DownloadFileType i:nil="false">Csv</DownloadFileType>
+      <Entities><%= entities.join(' ') %></Entities>
+      <FormatVersion i:nil="false">4.0</FormatVersion>
+    </DownloadCampaignsByAccountIdsRequest>
+  </s:Body>
+</s:Envelope>

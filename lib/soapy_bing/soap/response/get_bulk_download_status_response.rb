@@ -2,9 +2,9 @@
 module SoapyBing
   module Soap
     module Response
-      class GetAccountsInfoResponse < Base
+      class GetBulkDownloadStatusResponse < Base
         def extract_payload
-          Array.wrap(response['AccountsInfo']['AccountInfo'])
+          response.slice('PercentComplete', 'RequestStatus', 'ResultFileUrl')
         end
       end
     end

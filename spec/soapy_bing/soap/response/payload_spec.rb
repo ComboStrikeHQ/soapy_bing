@@ -3,18 +3,40 @@ RSpec.describe SoapyBing::Soap::Response::Payload do
   before do
     stub_const(
       'MyCustomResponse',
-      Class
-        .new
-        .include(described_class)
+      Class.new(SoapyBing::Soap::Response::Base).include(described_class)
     )
   end
 
-  subject(:response) { MyCustomResponse.new }
+  let(:body) { {} }
+  subject(:response) { MyCustomResponse.new(body) }
 
   describe '#payload' do
     it 'memoize #extract_payload value' do
       expect(response).to receive(:extract_payload).once.and_return(true)
       2.times { response.payload }
+    end
+
+    context 'faulty response' do
+      let(:body) do
+        {
+          'Envelope' => {
+            'Body' => {
+              'Fault' => {
+                'FaultCode' => '123',
+                'FaultMessage' => 'Fault Test'
+              }
+            }
+          }
+        }
+      end
+      let(:expected_error_message) do
+        '{"FaultCode"=>"123", "FaultMessage"=>"Fault Test"}'
+      end
+      it 'raises a Fault exception with fault message' do
+        expect { response.payload }.to raise_error(
+          SoapyBing::Soap::Response::Payload::Fault, expected_error_message
+        )
+      end
     end
   end
 
