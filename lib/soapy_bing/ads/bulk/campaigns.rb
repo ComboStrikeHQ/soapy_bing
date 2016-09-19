@@ -4,15 +4,19 @@ module SoapyBing
     module Bulk
       class Campaigns
         DEFAULT_ENTITIES = %w(CampaignTargets Ads).freeze
-        POLLING_TRIES = 30
+        DEFAULT_POLLING_SETTINGS = {
+          tries: 20,
+          sleep: ->(n) { n < 7 ? 2**n : 120 }
+        }.freeze
         NotCompleted = Class.new(StandardError)
 
-        attr_reader :oauth_credentials, :account, :entities, :status
+        attr_reader :oauth_credentials, :account, :entities, :polling_settings, :status
 
         def initialize(options)
           @oauth_credentials = options.fetch(:oauth_credentials)
           @account = options.fetch(:account)
           @entities = options.fetch(:entities) || DEFAULT_ENTITIES
+          @polling_settings = DEFAULT_POLLING_SETTINGS.merge(options.fetch(:polling_settings) || {})
         end
 
         def rows
@@ -36,7 +40,7 @@ module SoapyBing
         private
 
         def wait_status_complete
-          Retryable.retryable(tries: POLLING_TRIES, on: NotCompleted) do
+          Retryable.retryable(polling_settings.merge(on: NotCompleted)) do
             fetch_status
             raise NotCompleted if status['RequestStatus'] != 'Completed'
           end

@@ -21,11 +21,12 @@ module SoapyBing
       )
     end
 
-    def bulk_campaigns(entities = nil)
+    def bulk_campaigns(entities = nil, polling_settings = {})
       Bulk::Campaigns.new(
         oauth_credentials: oauth_credentials,
         account: account,
-        entities: entities
+        entities: entities,
+        polling_settings: polling_settings
       )
     end
 
