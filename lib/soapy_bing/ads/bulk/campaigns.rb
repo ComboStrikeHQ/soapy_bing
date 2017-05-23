@@ -3,7 +3,7 @@ module SoapyBing
   class Ads
     module Bulk
       class Campaigns
-        DEFAULT_ENTITIES = %w(CampaignTargets Ads).freeze
+        DEFAULT_ENTITIES = %w(CampaignTargetCriterions Ads).freeze
         DEFAULT_POLLING_SETTINGS = {
           tries: 20,
           sleep: ->(n) { n < 7 ? 2**n : 120 }

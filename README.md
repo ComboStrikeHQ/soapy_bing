@@ -25,11 +25,12 @@ report = bing_ads.campaign_performance_report(
 )
 report.rows # =>
             #     [{
-            #       "HourOfDay"    => "0",
-            #       "CampaignName" => "My Campaign",
-            #       "Impressions"  => "100",
-            #       "Clicks"       => "47",
-            #       "Spend"        => "12.65"
+            #       "GregorianDate" => "2015-10-14"
+            #       "Hour"          => "0",
+            #       "CampaignName"  => "My Campaign",
+            #       "Impressions"   => "100",
+            #       "Clicks"        => "47",
+            #       "Spend"         => "12.65"
             #     }, {
             #       ...
             #     }]

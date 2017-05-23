@@ -3,10 +3,11 @@ require 'json'
 
 RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
   let(:service) { SoapyBing::Ads.new }
+  let(:date) { '2016-10-14' }
   let(:report) do
     service.campaign_performance_report(
-      date_start: '2015-10-14',
-      date_end: '2015-10-14',
+      date_start: date,
+      date_end: date,
       # CampaignName is considered to be a sensitive data, lets not record it
       settings: { columns: %w(TimePeriod Impressions Clicks Spend) }
     )
@@ -18,10 +19,18 @@ RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
 
   describe '#rows' do
     subject(:rows) { report.rows }
+    context 'when there is a successful empty response during polling', :integration do
+      it 'responds with empty report rows',
+        vcr: { cassette_name: 'campaign_performance_report/with_successful_empty_response' } do
+        expect(rows).to eq []
+      end
+    end
 
-    context 'when there is a successfull response during polling', :integration do
+    context 'when there is a successful response during polling', :integration do
+      let(:date) { '2017-05-14' }
+
       it 'responds with report rows',
-        vcr: { cassette_name: 'campaign_performance_report/with_successful_status' } do
+        vcr: { cassette_name: 'campaign_performance_report/with_successful_response' } do
         expect(rows).to eq fixtured_payload
       end
     end

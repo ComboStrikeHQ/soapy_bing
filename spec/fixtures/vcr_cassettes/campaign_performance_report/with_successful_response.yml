@@ -35,14 +35,14 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Wed, 24 May 2017 19:38:31 GMT
+      - Thu, 25 May 2017 14:29:35 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: '{"token_type":"bearer","expires_in":3600,"scope":"bingads.manage","access_token":"bing-ads-oauth-authentication-token","refresh_token":"bing-ads-oauth-refresh-token","user_id":"bing-ads-oauth-user-id"}'
     http_version: 
-  recorded_at: Wed, 24 May 2017 19:38:32 GMT
+  recorded_at: Thu, 25 May 2017 14:29:35 GMT
 - request:
     method: post
     uri: https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/v11/ReportingService.svc
@@ -83,13 +83,13 @@ http_interactions:
                         <tns:Time>
                             <tns:CustomDateRangeEnd>
                                 <tns:Day>14</tns:Day>
-                                <tns:Month>10</tns:Month>
-                                <tns:Year>2016</tns:Year>
+                                <tns:Month>5</tns:Month>
+                                <tns:Year>2017</tns:Year>
                             </tns:CustomDateRangeEnd>
                             <tns:CustomDateRangeStart>
                                 <tns:Day>14</tns:Day>
-                                <tns:Month>10</tns:Month>
-                                <tns:Year>2016</tns:Year>
+                                <tns:Month>5</tns:Month>
+                                <tns:Year>2017</tns:Year>
                             </tns:CustomDateRangeStart>
                         </tns:Time>
                     </tns:ReportRequest>
@@ -115,14 +115,14 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Wed, 24 May 2017 19:38:32 GMT
+      - Thu, 25 May 2017 14:29:36 GMT
     body:
       encoding: UTF-8
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
         xmlns:h="https://bingads.microsoft.com/Reporting/v11">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><SubmitGenerateReportResponse
         xmlns="https://bingads.microsoft.com/Reporting/v11"><ReportRequestId>bing-ads-report-request-id</ReportRequestId></SubmitGenerateReportResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Wed, 24 May 2017 19:38:33 GMT
+  recorded_at: Thu, 25 May 2017 14:29:37 GMT
 - request:
     method: post
     uri: https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/v11/ReportingService.svc
@@ -166,7 +166,7 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Wed, 24 May 2017 19:38:34 GMT
+      - Thu, 25 May 2017 14:29:37 GMT
     body:
       encoding: UTF-8
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
@@ -174,5 +174,110 @@ http_interactions:
         xmlns="https://bingads.microsoft.com/Reporting/v11"><ReportRequestStatus xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ReportDownloadUrl
         i:nil="true"/><Status>Pending</Status></ReportRequestStatus></PollGenerateReportResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Wed, 24 May 2017 19:38:34 GMT
+  recorded_at: Thu, 25 May 2017 14:29:38 GMT
+- request:
+    method: post
+    uri: https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/v11/ReportingService.svc
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xmlns:tns="https://bingads.microsoft.com/Reporting/v11"
+                      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+            <env:Header>
+                <tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId>
+                <tns:CustomerId>bing-ads-customer-id</tns:CustomerId>
+                <tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken>
+                <tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken>
+            </env:Header>
+            <env:Body>
+                <tns:PollGenerateReportRequest>
+                    <tns:ReportRequestId xsi:nil="false">bing-ads-report-request-id</tns:ReportRequestId>
+                </tns:PollGenerateReportRequest>
+            </env:Body>
+        </env:Envelope>
+    headers:
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Soapaction:
+      - PollGenerateReport
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1621'
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 25 May 2017 14:29:41 GMT
+    body:
+      encoding: UTF-8
+      string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
+        xmlns:h="https://bingads.microsoft.com/Reporting/v11">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><PollGenerateReportResponse
+        xmlns="https://bingads.microsoft.com/Reporting/v11"><ReportRequestStatus xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ReportDownloadUrl>https://dvsrdl.api.bingads.microsoft.com/ReportDownload/Download.aspx?q=bing-ads-report-download-id</ReportDownloadUrl><Status>Success</Status></ReportRequestStatus></PollGenerateReportResponse></s:Body></s:Envelope>
+    http_version: 
+  recorded_at: Thu, 25 May 2017 14:29:42 GMT
+- request:
+    method: get
+    uri: https://dvsrdl.api.bingads.microsoft.com/ReportDownload/Download.aspx?q=bing-ads-report-download-id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Length:
+      - '919'
+      Content-Type:
+      - application/x-zip-compressed
+      Server:
+      - Microsoft-IIS/8.5
+      Content-Disposition:
+      - attachment; filename="MyReport.zip"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 25 May 2017 14:29:42 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        UEsDBBQAAAAIALQ7uUp9gjPZQQIAAFQFAAAVAFIAMzAwMDAwMDA3MzI1NTI1
+        NTcuY3N2TlUwAE5VQ1gVADMAMAAwADAAMAAwADAAMAA3ADMAMgA1ADUAMgA1
+        ADUANwAuAGMAcwB2AHVwGgABz2d+uzMwMDAwMDAwNzMyNTUyNTU3LmNzdoRU
+        S47UMBDdI3EHq1cgMR6X/86uNYhhJBqNYMSCXeg2TUQ6biXpQX0kzsACiQtx
+        BVzlQUI4gkXs2H71XO+V7Z/fvq/exGMaZ/a6PcSGbc5luHr86PfCXYcL5hL0
+        pRTgcAWn2Ps05Pl37dil04Szr9ppZlfpcOzjHHdsfd92ffuhj+x5e0YCaYiA
+        QSNNIwS73bAn15u7p/+MfZlO4/+CHxJd7/dj3Ldzl4aG4vrzH6svun6OmQqn
+        btMch7lre3YzbB82zVnObcPm8RQpKn2ZGiZ1/s+j60ycxq4dMiiunq2QPXc3
+        h+MYpylvOOXRVd9tP+PP22McdkiCGV8IcwE6z4r8Se1N7kA4n7tguQ4VDhBn
+        TMEFKDhnKpwkPltwniKF5l5XQEWEgHjIjEioONQbE0XwiPMBad0iHW2oPSbm
+        FLbGcOUqmMV9AorWhrKQXNYoh8iAZigIlCfXskLhug6OBAvKkmcD/0ZhvFaE
+        kp6S5L62DZBAaTQFPCYJivs6MUBlSpBp1hU2ATWMqkCegZQFtiATFNmJraKK
+        KcdVrbM0hs6Ik6jHBG4W6KgG1pLHVFFnuFs4SqTPKlkOB3YBFtWSQl9sA4EW
+        ecmtqIFUKk0mghMUBobDgjOYlvLGFqMDyQMuVX2QqSJgRRFFOUjBQ727LHej
+        nHktVLkiPNSCSi2cwwBr6XTnS1RnKYkjOKoPyTH5bthy6398pSdn023HNKWP
+        +ECN+S2hF4azdd+zsdt/mieWH4E43scdx9flFwAAAP//AwBQSwECLQAUAAAA
+        CAC0O7lKfYIz2UECAABUBQAAFQB4AAAAAAAAAAAAAAAAAAAAMzAwMDAwMDA3
+        MzI1NTI1NTcuY3N2TlUyAE5VQ1gVAAAAMwAwADAAMAAwADAAMAAwADcAMwAy
+        ADUANQAyADUANQA3AC4AYwBzAHYACgAgAAAAAAABABgALcL0V2PV0gEtwvRX
+        Y9XSAdlM9Fdj1dIBdXAaAAHPZ367MzAwMDAwMDA3MzI1NTI1NTcuY3N2UEsF
+        BgAAAAABAAEAuwAAAMYCAAAAAA==
+    http_version: 
+  recorded_at: Thu, 25 May 2017 14:29:43 GMT
 recorded_with: VCR 3.0.3

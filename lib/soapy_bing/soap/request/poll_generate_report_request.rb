@@ -8,9 +8,9 @@ module SoapyBing
         class PollingTimeoutError < StandardError; end
 
         API_BASE_URL = 'https://reporting.api.bingads.microsoft.com'
-        API_VERSION = 9
+        API_VERSION = 11
         API_ENDPOINT =
-          "#{API_BASE_URL}/Api/Advertiser/Reporting/V#{API_VERSION}/ReportingService.svc"
+          "#{API_BASE_URL}/Api/Advertiser/Reporting/v#{API_VERSION}/ReportingService.svc"
 
         POLLING_TRIES = 100
 

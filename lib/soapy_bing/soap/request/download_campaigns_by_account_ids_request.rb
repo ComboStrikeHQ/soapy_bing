@@ -4,9 +4,9 @@ module SoapyBing
     module Request
       class DownloadCampaignsByAccountIdsRequest < Base
         API_BASE_URL = 'https://bulk.api.bingads.microsoft.com'
-        API_VERSION = 10
+        API_VERSION = 11
         API_ENDPOINT =
-          "#{API_BASE_URL}/Api/Advertiser/CampaignManagement/V#{API_VERSION}/BulkService.svc"
+          "#{API_BASE_URL}/Api/Advertiser/CampaignManagement/v#{API_VERSION}/BulkService.svc"
 
         def perform
           Response::DownloadCampaignsByAccountIdsResponse.new(post(API_ENDPOINT))
