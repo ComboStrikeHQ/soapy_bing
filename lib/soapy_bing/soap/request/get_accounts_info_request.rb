@@ -4,7 +4,7 @@ module SoapyBing
     module Request
       class GetAccountsInfoRequest < Base
         API_BASE_URL = 'https://clientcenter.api.bingads.microsoft.com'
-        API_VERSION = 9
+        API_VERSION = 11
         API_ENDPOINT = "#{API_BASE_URL}/Api/CustomerManagement/" \
           "v#{API_VERSION}/CustomerManagementService.svc"
 

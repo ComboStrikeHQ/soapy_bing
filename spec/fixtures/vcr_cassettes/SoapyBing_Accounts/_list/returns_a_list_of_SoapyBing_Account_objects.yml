@@ -35,29 +35,29 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Tue, 16 Aug 2016 01:02:11 GMT
+      - Thu, 25 May 2017 13:26:04 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: '{"token_type":"bearer","expires_in":3600,"scope":"bingads.manage","access_token":"bing-ads-oauth-authentication-token","refresh_token":"bing-ads-oauth-refresh-token","user_id":"bing-ads-oauth-user-id"}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 01:02:11 GMT
+  recorded_at: Thu, 25 May 2017 13:26:04 GMT
 - request:
     method: post
-    uri: https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc
+    uri: https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v11/CustomerManagementService.svc
     body:
       encoding: UTF-8
       string: |
         <?xml version="1.0" encoding="UTF-8"?>
         <s:Envelope xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
-        <s:Header xmlns="https://bingads.microsoft.com/Customer/v9">
+        <s:Header xmlns="https://bingads.microsoft.com/Customer/v11">
           <Action mustUnderstand="1">GetAccountsInfo</Action>
           <AuthenticationToken>bing-ads-oauth-authentication-token</AuthenticationToken>
           <DeveloperToken>bing-ads-developer-token</DeveloperToken>
         </s:Header>
         <s:Body>
-          <GetAccountsInfoRequest xmlns="https://bingads.microsoft.com/Customer/v9">
+          <GetAccountsInfoRequest xmlns="https://bingads.microsoft.com/Customer/v11">
           </GetAccountsInfoRequest>
         </s:Body>
         </s:Envelope>
@@ -74,27 +74,27 @@ http_interactions:
       Cache-Control:
       - private
       Content-Length:
-      - '1078'
+      - '1081'
       Content-Type:
       - text/xml; charset=utf-8
       Server:
-      - Microsoft-IIS/8.0
+      - Microsoft-IIS/8.5
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
       Date:
-      - Tue, 16 Aug 2016 01:02:12 GMT
+      - Thu, 25 May 2017 13:26:05 GMT
     body:
       encoding: UTF-8
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
-        xmlns:h="https://bingads.microsoft.com/Customer/v9">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><GetAccountsInfoResponse
-        xmlns="https://bingads.microsoft.com/Customer/v9"><AccountsInfo xmlns:a="https://bingads.microsoft.com/Customer/v9/Entities"
-        xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><a:AccountInfo><a:Id>1111111</a:Id><a:Name>ad2games
+        xmlns:h="https://bingads.microsoft.com/Customer/v11">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><GetAccountsInfoResponse
+        xmlns="https://bingads.microsoft.com/Customer/v11"><AccountsInfo xmlns:a="https://bingads.microsoft.com/Customer/v11/Entities"
+        xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><a:AccountInfo><a:Id>bing-ads-account-id</a:Id><a:Name>ad2games
         GmbH</a:Name><a:Number>X000F9Z7</a:Number><a:AccountLifeCycleStatus>Active</a:AccountLifeCycleStatus><a:PauseReason
         i:nil="true"/></a:AccountInfo><a:AccountInfo><a:Id>2222222</a:Id><a:Name>SuperBrowserGames.com</a:Name><a:Number>X000K92F</a:Number><a:AccountLifeCycleStatus>Active</a:AccountLifeCycleStatus><a:PauseReason
         i:nil="true"/></a:AccountInfo><a:AccountInfo><a:Id>33333333</a:Id><a:Name>Wildworks.com</a:Name><a:Number>B008CXY6</a:Number><a:AccountLifeCycleStatus>Active</a:AccountLifeCycleStatus><a:PauseReason
         i:nil="true"/></a:AccountInfo></AccountsInfo></GetAccountsInfoResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 01:02:12 GMT
+  recorded_at: Thu, 25 May 2017 13:26:05 GMT
 recorded_with: VCR 3.0.3

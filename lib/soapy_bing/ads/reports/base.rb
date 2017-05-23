@@ -8,11 +8,12 @@ module SoapyBing
         class UnknownParserError < StandardError; end
         include Helpers::ClassName
 
+        XML_NIL_VALUE = { 'i:nil' => 'true' }.freeze
         DEFAULT_REPORT_SETTINGS = {
           format:      'Csv',
           language:    'English',
           name:        'MyReport',
-          aggregation: 'HourOfDay',
+          aggregation: 'Hourly',
           columns:     %w(TimePeriod CampaignName Impressions Clicks Spend CampaignId)
         }.freeze
 
@@ -25,10 +26,16 @@ module SoapyBing
         end
 
         def rows
-          @rows ||= parser_class.new(Helpers::ZipDownloader.new(download_url).read).rows
+          @rows ||= download_and_parse_rows
         end
 
         private
+
+        def download_and_parse_rows
+          # https://msdn.microsoft.com/en-us/library/bing-ads-api-migration-guide(v=msads.100).aspx#Report-Download-URL-and-Empty-Reports
+          return [] if download_url == XML_NIL_VALUE
+          parser_class.new(Helpers::ZipDownloader.new(download_url).read).rows
+        end
 
         def parser_class
           class_name = "#{settings.format.upcase}Parser".to_sym
@@ -37,7 +44,7 @@ module SoapyBing
         end
 
         def download_url
-          @url ||=
+          @download_url ||=
             Soap::Request::PollGenerateReportRequest
               .new(context: poll_generate_report_context)
               .perform

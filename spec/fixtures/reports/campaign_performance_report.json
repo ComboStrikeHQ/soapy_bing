@@ -1,146 +1,170 @@
 [
   {
-    "HourOfDay": "0",
-    "Impressions": "3793",
-    "Clicks": "1599",
-    "Spend": "72.65"
+    "GregorianDate": "2017-05-14",
+    "Hour": "0",
+    "Impressions": "2485",
+    "Clicks": "1078",
+    "Spend": "96.49"
   },
   {
-    "HourOfDay": "1",
-    "Impressions": "3560",
-    "Clicks": "1429",
-    "Spend": "65.38"
+    "GregorianDate": "2017-05-14",
+    "Hour": "1",
+    "Impressions": "2555",
+    "Clicks": "1091",
+    "Spend": "96.75"
   },
   {
-    "HourOfDay": "2",
-    "Impressions": "3177",
-    "Clicks": "1275",
-    "Spend": "57.92"
+    "GregorianDate": "2017-05-14",
+    "Hour": "2",
+    "Impressions": "2465",
+    "Clicks": "1084",
+    "Spend": "104.84"
   },
   {
-    "HourOfDay": "3",
-    "Impressions": "2194",
-    "Clicks": "849",
-    "Spend": "38.68"
+    "GregorianDate": "2017-05-14",
+    "Hour": "3",
+    "Impressions": "2512",
+    "Clicks": "1109",
+    "Spend": "93.19"
   },
   {
-    "HourOfDay": "4",
-    "Impressions": "1393",
-    "Clicks": "531",
-    "Spend": "24.14"
+    "GregorianDate": "2017-05-14",
+    "Hour": "4",
+    "Impressions": "1982",
+    "Clicks": "895",
+    "Spend": "74.84"
   },
   {
-    "HourOfDay": "5",
-    "Impressions": "765",
-    "Clicks": "247",
-    "Spend": "11.07"
+    "GregorianDate": "2017-05-14",
+    "Hour": "5",
+    "Impressions": "1481",
+    "Clicks": "731",
+    "Spend": "55.37"
   },
   {
-    "HourOfDay": "6",
-    "Impressions": "393",
-    "Clicks": "141",
-    "Spend": "6.31"
+    "GregorianDate": "2017-05-14",
+    "Hour": "6",
+    "Impressions": "990",
+    "Clicks": "454",
+    "Spend": "32.27"
   },
   {
-    "HourOfDay": "7",
-    "Impressions": "152",
-    "Clicks": "55",
-    "Spend": "2.46"
+    "GregorianDate": "2017-05-14",
+    "Hour": "7",
+    "Impressions": "698",
+    "Clicks": "319",
+    "Spend": "25.42"
   },
   {
-    "HourOfDay": "8",
-    "Impressions": "86",
-    "Clicks": "25",
-    "Spend": "1.12"
+    "GregorianDate": "2017-05-14",
+    "Hour": "8",
+    "Impressions": "497",
+    "Clicks": "240",
+    "Spend": "19.78"
   },
   {
-    "HourOfDay": "9",
-    "Impressions": "16",
-    "Clicks": "6",
-    "Spend": "0.27"
+    "GregorianDate": "2017-05-14",
+    "Hour": "9",
+    "Impressions": "437",
+    "Clicks": "228",
+    "Spend": "14.85"
   },
   {
-    "HourOfDay": "10",
-    "Impressions": "6",
-    "Clicks": "3",
-    "Spend": "0.13"
+    "GregorianDate": "2017-05-14",
+    "Hour": "10",
+    "Impressions": "343",
+    "Clicks": "186",
+    "Spend": "13.87"
   },
   {
-    "HourOfDay": "11",
-    "Impressions": "6",
-    "Clicks": "2",
-    "Spend": "0.09"
+    "GregorianDate": "2017-05-14",
+    "Hour": "11",
+    "Impressions": "302",
+    "Clicks": "167",
+    "Spend": "14.01"
   },
   {
-    "HourOfDay": "12",
-    "Impressions": "36",
-    "Clicks": "18",
-    "Spend": "0.80"
+    "GregorianDate": "2017-05-14",
+    "Hour": "12",
+    "Impressions": "282",
+    "Clicks": "122",
+    "Spend": "14.27"
   },
   {
-    "HourOfDay": "13",
-    "Impressions": "115",
-    "Clicks": "58",
-    "Spend": "2.58"
+    "GregorianDate": "2017-05-14",
+    "Hour": "13",
+    "Impressions": "743",
+    "Clicks": "365",
+    "Spend": "37.32"
   },
   {
-    "HourOfDay": "14",
-    "Impressions": "754",
-    "Clicks": "332",
-    "Spend": "14.89"
+    "GregorianDate": "2017-05-14",
+    "Hour": "14",
+    "Impressions": "1585",
+    "Clicks": "729",
+    "Spend": "59.57"
   },
   {
-    "HourOfDay": "15",
-    "Impressions": "934",
-    "Clicks": "434",
-    "Spend": "19.63"
+    "GregorianDate": "2017-05-14",
+    "Hour": "15",
+    "Impressions": "1666",
+    "Clicks": "909",
+    "Spend": "75.79"
   },
   {
-    "HourOfDay": "16",
-    "Impressions": "1177",
-    "Clicks": "525",
-    "Spend": "23.63"
+    "GregorianDate": "2017-05-14",
+    "Hour": "16",
+    "Impressions": "1632",
+    "Clicks": "1042",
+    "Spend": "91.87"
   },
   {
-    "HourOfDay": "17",
-    "Impressions": "1127",
-    "Clicks": "528",
-    "Spend": "23.80"
+    "GregorianDate": "2017-05-14",
+    "Hour": "17",
+    "Impressions": "1828",
+    "Clicks": "1100",
+    "Spend": "82.60"
   },
   {
-    "HourOfDay": "18",
-    "Impressions": "1107",
-    "Clicks": "509",
-    "Spend": "22.88"
+    "GregorianDate": "2017-05-14",
+    "Hour": "18",
+    "Impressions": "3410",
+    "Clicks": "1707",
+    "Spend": "115.11"
   },
   {
-    "HourOfDay": "19",
-    "Impressions": "1281",
-    "Clicks": "615",
-    "Spend": "27.77"
+    "GregorianDate": "2017-05-14",
+    "Hour": "19",
+    "Impressions": "3856",
+    "Clicks": "1869",
+    "Spend": "141.23"
   },
   {
-    "HourOfDay": "20",
-    "Impressions": "1718",
-    "Clicks": "789",
-    "Spend": "35.56"
+    "GregorianDate": "2017-05-14",
+    "Hour": "20",
+    "Impressions": "3160",
+    "Clicks": "1668",
+    "Spend": "120.90"
   },
   {
-    "HourOfDay": "21",
-    "Impressions": "2472",
-    "Clicks": "1207",
-    "Spend": "54.23"
+    "GregorianDate": "2017-05-14",
+    "Hour": "21",
+    "Impressions": "2565",
+    "Clicks": "1403",
+    "Spend": "109.97"
   },
   {
-    "HourOfDay": "22",
-    "Impressions": "3660",
-    "Clicks": "1621",
-    "Spend": "73.08"
+    "GregorianDate": "2017-05-14",
+    "Hour": "22",
+    "Impressions": "1771",
+    "Clicks": "664",
+    "Spend": "46.71"
   },
   {
-    "HourOfDay": "23",
-    "Impressions": "3843",
-    "Clicks": "1754",
-    "Spend": "79.54"
+    "GregorianDate": "2017-05-14",
+    "Hour": "23",
+    "Impressions": "1973",
+    "Clicks": "707",
+    "Spend": "53.16"
   }
 ]

@@ -80,6 +80,7 @@ VCR.configure do |c|
     # auto-generate report payload fixtures
     # spec/fixtures/reports/campaign_performance_report.json
     # spec/fixtures/reports/campaing_performance_report.csv
+    next unless interaction.request.uri =~ /ReportDownload/
     if interaction.response.headers['Content-Type'].first == 'application/x-zip-compressed'
       # refactor zip into module
       csv_data = Zip::InputStream.open(StringIO.new(interaction.response.body)) do |archive_io|
@@ -96,6 +97,51 @@ VCR.configure do |c|
         file.write(csv_data)
       end
     end
+  end
+
+  c.before_record do |interaction|
+    # auto-generate bulk payload fixtures
+    # spec/fixtures/bulk/campaigns.json
+    # spec/fixtures/bulk/campaings.csv
+    next unless interaction.request.uri =~ /bulkdownloadresultfiles/
+    body_zip_entry_name = nil
+    unzipped_body = Zip::InputStream.open(StringIO.new(interaction.response.body)) do |archive_io|
+      entry = archive_io.get_next_entry
+      body_zip_entry_name = entry.name
+      entry.get_input_stream.read
+    end
+
+    unzipped_body.gsub!(ENV['BING_ADS_ACCOUNT_ID'], '123456')
+
+    rows = SoapyBing::Ads::Bulk::Parsers::CSVParser.new(unzipped_body).rows[0..5]
+
+    rows.map do |row|
+      next unless row['Type'] == 'Campaign'
+      row['Campaign'] = "Campaign #{row['Id']}"
+    end
+
+    modified_csv = CSV.generate do |csv|
+      csv << rows.first.keys
+      rows.each do |row|
+        csv << row.values
+      end
+    end
+
+    fixtures_dir = File.join('spec', 'fixtures', 'bulk')
+    File.open(File.join(fixtures_dir, 'campaigns.csv'), 'wb') do |file|
+      file.write(modified_csv)
+    end
+
+    File.open(File.join(fixtures_dir, 'campaigns.json'), 'wb') do |file|
+      file.write(JSON.pretty_generate(rows))
+    end
+
+    zipped_body = StringIO.new
+    Zip::OutputStream.write_buffer(zipped_body) do |io|
+      io.put_next_entry(body_zip_entry_name)
+      io.write(modified_csv)
+    end
+    interaction.response.body = String.new(zipped_body.string, encoding: 'ASCII-8BIT')
   end
 
   c.ignore_hosts 'codeclimate.com' # allow codeclimate-test-reporter to phone home

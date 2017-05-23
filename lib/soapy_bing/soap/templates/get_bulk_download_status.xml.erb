@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <s:Envelope xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
-  <s:Header xmlns="https://bingads.microsoft.com/CampaignManagement/v10">
+  <s:Header xmlns="https://bingads.microsoft.com/CampaignManagement/v11">
     <Action mustUnderstand="1">GetBulkDownloadStatus</Action>
     <AuthenticationToken i:nil="false"><%= authentication_token %></AuthenticationToken>
     <CustomerAccountId i:nil="false"><%= account.account_id %></CustomerAccountId>
@@ -8,7 +8,7 @@
     <DeveloperToken i:nil="false"><%= account.developer_token %></DeveloperToken>
   </s:Header>
   <s:Body>
-    <GetBulkDownloadStatusRequest xmlns="https://bingads.microsoft.com/CampaignManagement/v10">
+    <GetBulkDownloadStatusRequest xmlns="https://bingads.microsoft.com/CampaignManagement/v11">
       <RequestId i:nil="false"><%= request_id %></RequestId>
     </GetBulkDownloadStatusRequest>
   </s:Body>
