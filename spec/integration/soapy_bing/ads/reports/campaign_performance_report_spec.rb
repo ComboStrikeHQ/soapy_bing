@@ -15,7 +15,7 @@ RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
   let(:payload_fixture_path) do
     File.join('spec', 'fixtures', 'reports', 'campaign_performance_report.json')
   end
-  let(:fixtured_payload) { JSON.load(File.read(payload_fixture_path)) }
+  let(:fixtured_payload) { JSON.parse(File.read(payload_fixture_path)) }
 
   describe '#rows' do
     subject(:rows) { report.rows }
