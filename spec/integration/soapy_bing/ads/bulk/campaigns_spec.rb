@@ -5,7 +5,7 @@ RSpec.describe SoapyBing::Ads::Bulk::Campaigns do
 
   describe '#rows', :vcr do
     let(:fixtured_payload) do
-      JSON.load(File.read(File.join('spec', 'fixtures', 'bulk', 'campaigns.json')))
+      JSON.parse(File.read(File.join('spec', 'fixtures', 'bulk', 'campaigns.json')))
     end
 
     it 'returns parsed rows' do

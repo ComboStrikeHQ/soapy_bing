@@ -8,7 +8,7 @@ RSpec.describe SoapyBing::Soap::Response::Payload do
   end
 
   let(:body) { {} }
-  subject(:response) { MyCustomResponse.new(body) }
+  let(:response) { MyCustomResponse.new(body) }
 
   describe '#payload' do
     it 'memoize #extract_payload value' do

@@ -14,7 +14,7 @@ RSpec.describe SoapyBing::Ads::Reports::Parsers::CSVParser do
       let(:json_fixture_path) do
         File.join('spec', 'fixtures', 'reports', 'campaign_performance_report.json')
       end
-      let(:json_data) { JSON.load(File.read(json_fixture_path)) }
+      let(:json_data) { JSON.parse(File.read(json_fixture_path)) }
 
       it 'responds with array of Hashes' do
         expect(rows).to eq json_data
