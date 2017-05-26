@@ -33,8 +33,12 @@ module SoapyBing
 
         def download_and_parse_rows
           # https://msdn.microsoft.com/en-us/library/bing-ads-api-migration-guide(v=msads.100).aspx#Report-Download-URL-and-Empty-Reports
-          return [] if download_url == XML_NIL_VALUE
+          return [] if nil_xml_value?(download_url)
           parser_class.new(Helpers::ZipDownloader.new(download_url).read).rows
+        end
+
+        def nil_xml_value?(value)
+          value.nil? || value == XML_NIL_VALUE
         end
 
         def parser_class
