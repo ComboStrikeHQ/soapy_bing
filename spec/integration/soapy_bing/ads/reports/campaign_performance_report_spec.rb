@@ -19,10 +19,28 @@ RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
 
   describe '#rows' do
     subject(:rows) { report.rows }
+
     context 'when there is a successful empty response during polling', :integration do
-      it 'responds with empty report rows',
-        vcr: { cassette_name: 'campaign_performance_report/with_successful_empty_response' } do
-        expect(rows).to eq []
+      around do |example|
+        original_parser = MultiXml.parser
+        MultiXml.parser = parser
+        example.run
+        MultiXml.parser = original_parser
+      end
+
+      shared_examples('non downloadable') do
+        it 'responds with empty report rows',
+          vcr: { cassette_name: 'campaign_performance_report/with_successful_empty_response' } do
+          expect(rows).to eq []
+        end
+      end
+
+      it_behaves_like 'non downloadable' do
+        let(:parser) { 'rexml' }
+      end
+
+      it_behaves_like 'non downloadable' do
+        let(:parser) { 'nokogiri' }
       end
     end
 
