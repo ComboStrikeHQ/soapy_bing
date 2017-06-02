@@ -19,11 +19,12 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'erubis'
+  spec.add_dependency 'erubis' # TODO: Remove when savon migration is complete
   spec.add_dependency 'activesupport'
   spec.add_dependency 'httparty'
   spec.add_dependency 'retryable', '>= 2.0.0'
   spec.add_dependency 'rubyzip', '>= 1.0.0'
+  spec.add_dependency 'savon', '~> 2.11'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
@@ -32,5 +33,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'vcr'
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'dotenv'
-  spec.add_development_dependency 'nokogiri'
 end
