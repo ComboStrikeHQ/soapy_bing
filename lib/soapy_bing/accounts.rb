@@ -1,32 +1,27 @@
 # frozen_string_literal: true
 module SoapyBing
   class Accounts
-    attr_reader :oauth_credentials, :customer
+    attr_reader :service
 
-    def initialize(oauth: {}, customer: {})
-      @oauth_credentials = OauthCredentials.new(oauth)
-      @customer = Customer.new(customer)
+    def initialize(*args)
+      @service = Service.customer_management(*args)
     end
 
     def list
-      do_request(Soap::Request::GetAccountsInfoRequest).map do |account|
-        Account.new(
-          developer_token: customer.developer_token,
-          customer_id: customer.customer_id,
-          account_id: account['Id']
-        )
+      response = service.get_accounts_info
+      response[:accounts_info][:account_info].map do |account_info|
+        build_account(account_info)
       end
     end
 
     private
 
-    def do_request(klass, options = {})
-      klass.new(context: {
-        authentication_token: oauth_credentials.access_token,
-        developer_token: customer.developer_token
-      }.merge(options))
-        .perform
-        .payload
+    def build_account(account_info)
+      Account.new(
+        developer_token: service.customer.developer_token,
+        customer_id: service.customer.customer_id,
+        account_id: account_info[:id]
+      )
     end
   end
 end
