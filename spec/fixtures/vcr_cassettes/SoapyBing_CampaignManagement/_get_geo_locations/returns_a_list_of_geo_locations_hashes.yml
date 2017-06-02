@@ -1,0 +1,154 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://login.live.com/oauth20_token.srf
+    body:
+      encoding: UTF-8
+      string: client_id=bing-ads-oauth-client-id&client_secret=bing-ads-oauth-client-secret&grant_type=refresh_token&refresh_token=bing-ads-oauth-refresh-token
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1509'
+      Content-Type:
+      - application/json
+      Server:
+      - Microsoft-IIS/8.5
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Mon, 05 Jun 2017 14:58:59 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"token_type":"bearer","expires_in":3600,"scope":"bingads.manage","access_token":"bing-ads-oauth-authentication-token","refresh_token":"bing-ads-oauth-refresh-token","user_id":"bing-ads-oauth-user-id"}'
+    http_version: 
+  recorded_at: Mon, 05 Jun 2017 14:59:00 GMT
+- request:
+    method: post
+    uri: https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V11/CampaignManagementService.svc
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/CampaignManagement/v11"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>GetGeoLocationsFileUrl</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:GetGeoLocationsFileUrlRequest><tns:Version>1.0</tns:Version><tns:LanguageLocale>en</tns:LanguageLocale></tns:GetGeoLocationsFileUrlRequest></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"GetGeoLocationsFileUrl"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '1700'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/8.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 05 Jun 2017 14:59:01 GMT
+      Content-Length:
+      - '431'
+    body:
+      encoding: ASCII-8BIT
+      string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
+        xmlns:h="https://bingads.microsoft.com/CampaignManagement/v11">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><GetGeoLocationsFileUrlResponse
+        xmlns="https://bingads.microsoft.com/CampaignManagement/v11"><FileUrl>https://bingadsappsstorageprod.blob.core.windows.net/geolocationscsv/1.0/en/GeoLocations.csv?sv=2015-12-11&amp;sr=b&amp;sig=wrLaqR8eT8cKeJntsDD0hJ1hnm1KrkAid1c9VzfJfnw%3D&amp;st=2017-06-05T14%3A54%3A01Z&amp;se=2017-06-05T15%3A14%3A01Z&amp;sp=rl</FileUrl><FileUrlExpiryTimeUtc>2017-06-05T15:14:01Z</FileUrlExpiryTimeUtc><LastModifiedTimeUtc>2016-12-23T00:14:46Z</LastModifiedTimeUtc></GetGeoLocationsFileUrlResponse></s:Body></s:Envelope>
+    http_version: 
+  recorded_at: Mon, 05 Jun 2017 14:59:01 GMT
+- request:
+    method: get
+    uri: https://bingadsappsstorageprod.blob.core.windows.net/geolocationscsv/1.0/en/GeoLocations.csv?se=2017-06-05T15:14:01Z&sig=wrLaqR8eT8cKeJntsDD0hJ1hnm1KrkAid1c9VzfJfnw=&sp=rl&sr=b&st=2017-06-05T14:54:01Z&sv=2015-12-11
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '5905806'
+      Content-Type:
+      - text/csv
+      Content-Md5:
+      - xcU2iJHBPPuqyaLL/bQi8A==
+      Last-Modified:
+      - Fri, 23 Dec 2016 00:14:46 GMT
+      Accept-Ranges:
+      - bytes
+      Etag:
+      - '"0x8D42AC8B3E4F3BA"'
+      Vary:
+      - Origin
+      Server:
+      - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+      X-Ms-Request-Id:
+      - fe5eb4a5-0001-0058-510c-de3f54000000
+      X-Ms-Version:
+      - '2015-12-11'
+      X-Ms-Lease-Status:
+      - unlocked
+      X-Ms-Lease-State:
+      - available
+      X-Ms-Blob-Type:
+      - BlockBlob
+      X-Ms-Server-Encrypted:
+      - 'false'
+      Date:
+      - Mon, 05 Jun 2017 14:59:01 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        ID,Code,Display Name,Descriptor,Target Type,Replaces,Status,AdWords Location ID
+        1,AL,Albania,country/region,Country,,Active,2008
+        2,AQ,Antarctica,country/region,Country,,Active,2010
+        3,DZ,Algeria,country/region,Country,,Active,2012
+        4,AS,American Samoa,country/region,Country,,Active,2016
+        5,AD,Andorra,country/region,Country,,Active,2020
+    http_version: 
+  recorded_at: Mon, 05 Jun 2017 14:59:20 GMT
+recorded_with: VCR 3.0.3

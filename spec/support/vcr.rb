@@ -144,5 +144,20 @@ VCR.configure do |c|
     interaction.response.body = String.new(zipped_body.string, encoding: 'ASCII-8BIT')
   end
 
+  # reduce response size for get_geo_locations vcr file
+  c.before_record do |interaction|
+    next unless interaction.request.uri =~ /GeoLocations\.csv/
+
+    rows = CSV.parse(interaction.response.body)[0..5]
+
+    modified_csv = CSV.generate do |csv|
+      rows.each do |row|
+        csv << row
+      end
+    end
+
+    interaction.response.body = modified_csv
+  end
+
   c.ignore_hosts 'codeclimate.com' # allow codeclimate-test-reporter to phone home
 end
