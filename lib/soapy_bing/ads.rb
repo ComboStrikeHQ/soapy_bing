@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 require 'soapy_bing/ads/reports'
-require 'soapy_bing/ads/bulk'
-
 module SoapyBing
   class Ads
     attr_reader :oauth_credentials, :account
@@ -18,15 +16,6 @@ module SoapyBing
         date_start: date_start,
         date_end: date_end,
         settings: settings
-      )
-    end
-
-    def bulk_campaigns(entities = nil, polling_settings = {})
-      Bulk::Campaigns.new(
-        oauth_credentials: oauth_credentials,
-        account: account,
-        entities: entities,
-        polling_settings: polling_settings
       )
     end
   end

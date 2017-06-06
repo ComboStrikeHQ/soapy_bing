@@ -20,8 +20,10 @@ module SoapyBing
     class << self
       SERVICES.each_key do |service|
         define_method(service) do |options = {}|
-          options[:wsdl] = local_wsdl_path_for(service)
-          new(savon_globals: DEFAULT_GLOBALS.merge(options))
+          options[:savon_globals] ||= {}
+          options[:savon_globals][:wsdl] = local_wsdl_path_for(service)
+          options[:savon_globals] = DEFAULT_GLOBALS.merge(options[:savon_globals])
+          new(options)
         end
       end
 
