@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'json'
 
-RSpec.describe SoapyBing::Ads::Bulk::Parsers::CSVParser do
+RSpec.describe SoapyBing::Bulk::Parsers::CSVParser do
   describe '#rows' do
     subject(:rows) { described_class.new(csv_data).rows }
 
