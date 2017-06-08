@@ -21,7 +21,7 @@ module SoapyBing
       ).rows
     end
 
-    def campaigns(entities = nil, polling_settings = {})
+    def campaigns(entities = Campaigns::DEFAULT_ENTITIES, polling_settings: {})
       Campaigns.new(
         service_options: service_options,
         entities: entities,
