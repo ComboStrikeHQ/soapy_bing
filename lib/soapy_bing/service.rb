@@ -28,7 +28,7 @@ module SoapyBing
       end
 
       def local_wsdl_path_for(service)
-        File.join('lib', 'soapy_bing', 'wsdl', "#{service}.wsdl")
+        File.join(__dir__, 'wsdl', "#{service}.wsdl")
       end
     end
 

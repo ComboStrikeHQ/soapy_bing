@@ -4,7 +4,7 @@ require 'yaml'
 
 module SoapyBing
   class CountryCodes
-    YML_FILE_PATH = File.join('lib', 'soapy_bing', 'country_codes.yml').freeze
+    YML_FILE_PATH = File.join(__dir__, 'country_codes.yml').freeze
 
     def initialize
       @country_codes = YAML.safe_load(File.read(YML_FILE_PATH))
