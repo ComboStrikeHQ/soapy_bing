@@ -3,9 +3,9 @@
 require 'csv'
 
 module SoapyBing
-  class Reports
+  class Ads
     module Parsers
-      class CSVParser
+      class ReportCsvParser
         class FormatError < StandardError; end
 
         CSV_PAYLOAD_OFFSET_FRONT = 10 # First 10 csv lines are report metadata

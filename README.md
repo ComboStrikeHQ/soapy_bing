@@ -14,7 +14,7 @@ gem 'soapy_bing'
 ## Usage Examples
 
 ```ruby
-bing_ads = SoapyBing::Reports.new
+bing_ads = SoapyBing::Ads.new
 rows = bing_ads.campaign_performance_report(
   date_start: '2017-05-14',
   date_end: '2017-05-14',
@@ -37,11 +37,11 @@ rows = bing_ads.campaign_performance_report(
 
 ## Authentication
 
-Authentication attributes could be passed explicitly when new instance of SoapyBing::Reports is created.
+Authentication attributes could be passed explicitly when new instance of SoapyBing::Ads is created.
 Or they could be configured as Environment variables.
 
 ```ruby
-SoapyBing::Reports.new(
+SoapyBing::Ads.new(
   oauth_credentials: {      # optional, could be configured via environment variables as
     client_id: '',          # ENV['BING_ADS_OAUTH_CLIENT_ID']
     client_secret: '',      # ENV['BING_ADS_OAUTH_CLIENT_SECRET']

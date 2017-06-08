@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'soapy_bing/bulk/parsers/csv_parser'
+require 'soapy_bing/ads/parsers/bulk_csv_parser'
 
 module SoapyBing
-  class Bulk
+  class Ads
     class Campaigns
       DEFAULT_ENTITIES = %w[CampaignTargetCriterions Ads].freeze
       DEFAULT_POLLING_SETTINGS = {
@@ -15,14 +15,14 @@ module SoapyBing
 
       attr_reader :service, :entities, :polling_settings, :status
 
-      def initialize(service:, entities: DEFAULT_ENTITIES, polling_settings: {})
-        @service = service
+      def initialize(service_options:, entities: DEFAULT_ENTITIES, polling_settings: {})
+        @service = Service.bulk(service_options)
         @entities = entities
         @polling_settings = DEFAULT_POLLING_SETTINGS.merge(polling_settings)
       end
 
       def rows
-        @rows ||= Parsers::CSVParser.new(Helpers::ZipDownloader.new(result_file_url).read).rows
+        @rows ||= Parsers::BulkCsvParser.new(Helpers::ZipDownloader.new(result_file_url).read).rows
       end
 
       private

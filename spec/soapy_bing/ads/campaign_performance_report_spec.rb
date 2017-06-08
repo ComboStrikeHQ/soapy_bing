@@ -2,10 +2,10 @@
 
 require 'date'
 
-RSpec.describe SoapyBing::Reports::CampaignPerformanceReport do
+RSpec.describe SoapyBing::Ads::CampaignPerformanceReport do
   subject(:report) { described_class.new(report_options) }
 
-  let(:report_options) { { service: service_double } }
+  let(:report_options) { { service_options: {} } }
   let(:service_double) { double }
 
   describe '#initialize' do
@@ -51,6 +51,7 @@ RSpec.describe SoapyBing::Reports::CampaignPerformanceReport do
 
       before do
         report_options.merge!(date_start: date, date_end: date)
+        allow(SoapyBing::Service).to receive(:reporting).and_return(service_double)
         allow(service_double).to receive(:submit_generate_report) do
           { report_request_id: '123' }
         end
@@ -62,7 +63,7 @@ RSpec.describe SoapyBing::Reports::CampaignPerformanceReport do
       end
 
       it 'raises StatusFailed' do
-        expect { report.rows }.to raise_error SoapyBing::Reports::StatusFailed
+        expect { report.rows }.to raise_error SoapyBing::Ads::StatusFailed
         expect(service_double).to have_received(:poll_generate_report).once
       end
     end

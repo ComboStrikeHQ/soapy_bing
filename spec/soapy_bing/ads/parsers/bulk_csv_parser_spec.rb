@@ -2,17 +2,17 @@
 
 require 'json'
 
-RSpec.describe SoapyBing::Bulk::Parsers::CSVParser do
+RSpec.describe SoapyBing::Ads::Parsers::BulkCsvParser do
   describe '#rows' do
     subject(:rows) { described_class.new(csv_data).rows }
 
     let(:csv_fixture_path) do
-      File.join('spec', 'fixtures', 'bulk', 'campaigns.csv')
+      File.join('spec', 'fixtures', 'ads', 'campaigns.csv')
     end
     let(:csv_data) { File.read(csv_fixture_path) }
 
     let(:json_fixture_path) do
-      File.join('spec', 'fixtures', 'bulk', 'campaigns.json')
+      File.join('spec', 'fixtures', 'ads', 'campaigns.json')
     end
     let(:json_data) { JSON.parse(File.read(json_fixture_path)) }
 

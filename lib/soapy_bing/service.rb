@@ -9,23 +9,22 @@ module SoapyBing
       convert_request_keys_to: :camelcase
     }.freeze
 
-    SERVICES = {
-      ad_insight: 'https://adinsight.api.bingads.microsoft.com/Api/Advertiser/AdInsight/v11/AdInsightService.svc?wsdl',
-      bulk: 'https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v11/BulkService.svc?wsdl',
-      campaign_management: 'https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V11/CampaignManagementService.svc?wsdl',
-      customer_billing: 'https://clientcenter.api.bingads.microsoft.com/Api/Billing/v11/CustomerBillingService.svc?wsdl',
-      customer_management: 'https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/V11/CustomerManagementService.svc?wsdl',
-      reporting: 'https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/v11/ReportingService.svc?wsdl'
-    }.freeze
-
     class << self
-      SERVICES.each_key do |service|
-        define_method(service) do |options = {}|
-          options[:savon_globals] ||= {}
-          options[:savon_globals][:wsdl] = local_wsdl_path_for(service)
-          options[:savon_globals] = DEFAULT_GLOBALS.merge(options[:savon_globals])
-          new(options)
-        end
+      # Prefer to define methods for each service explicitly
+      # rubocop:disable all
+      def ad_insight         (options = {}); build(:ad_insight,          options); end
+      def bulk               (options = {}); build(:bulk,                options); end
+      def campaign_management(options = {}); build(:campaign_management, options); end
+      def customer_billing   (options = {}); build(:customer_billing,    options); end
+      def customer_management(options = {}); build(:customer_management, options); end
+      def reporting          (options = {}); build(:reporting,           options); end
+      # rubocop:enable all
+
+      def build(bing_ads_service, options)
+        options[:savon_globals] ||= {}
+        options[:savon_globals][:wsdl] = local_wsdl_path_for(bing_ads_service)
+        options[:savon_globals] = DEFAULT_GLOBALS.merge(options[:savon_globals])
+        new(options)
       end
 
       def local_wsdl_path_for(service)

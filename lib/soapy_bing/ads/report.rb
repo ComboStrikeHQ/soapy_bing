@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 require 'ostruct'
-require 'soapy_bing/reports/parsers/csv_parser'
+require 'soapy_bing/ads/parsers/report_csv_parser'
 
 module SoapyBing
-  class Reports
+  class Ads
     NotCompleted = Class.new(StandardError)
     StatusFailed = Class.new(StandardError)
 
-    class Base
+    class Report
       DEFAULT_REPORT_SETTINGS = {
         format:      'Csv',
         language:    'English',
@@ -25,7 +25,7 @@ module SoapyBing
       attr_reader :service, :settings, :polling_settings, :status
 
       def initialize(options)
-        @service = options.fetch(:service)
+        @service = Service.reporting(options.fetch(:service_options))
         @settings = OpenStruct.new(DEFAULT_REPORT_SETTINGS.merge(options.fetch(:settings, {})))
         @polling_settings = DEFAULT_POLLING_SETTINGS.merge(options.fetch(:polling_settings, {}))
       end
@@ -39,7 +39,7 @@ module SoapyBing
       def download_and_parse_rows
         # https://msdn.microsoft.com/en-us/library/bing-ads-api-migration-guide(v=msads.100).aspx#Report-Download-URL-and-Empty-Reports
         return [] unless download_url
-        Parsers::CSVParser.new(Helpers::ZipDownloader.new(download_url).read).rows
+        Parsers::ReportCsvParser.new(Helpers::ZipDownloader.new(download_url).read).rows
       end
 
       def download_url
