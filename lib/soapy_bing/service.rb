@@ -42,7 +42,7 @@ module SoapyBing
     end
 
     def method_missing(method, *args, &block)
-      operation?(method) ? call(method, args.first) : super
+      operation?(method) ? call(method, args.first, &block) : super
     end
 
     def respond_to_missing?(method, *_)
@@ -55,8 +55,8 @@ module SoapyBing
       savon_client.operations.include?(method)
     end
 
-    def call(operation_name, message)
-      ServiceOperation.new(self, operation_name).call(message)
+    def call(operation_name, message, &block)
+      ServiceOperation.new(self, operation_name).call(message, &block)
     end
   end
 end

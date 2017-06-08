@@ -8,42 +8,41 @@ Client library for [Bing Ads API](https://msdn.microsoft.com/en-us/library/bing-
 In your Gemfile
 
 ```ruby
-gem 'soapy_bing', git: 'https://github.com/ad2games/soapy_bing'
+gem 'soapy_bing'
 ```
 
 ## Usage Examples
 
 ```ruby
-bing_ads = SoapyBing::Ads.new
-report = bing_ads.campaign_performance_report(
-  date_start: '2015-10-14',
-  date_end: '2015-10-14',
-
+bing_ads = SoapyBing::Reports.new
+rows = bing_ads.campaign_performance_report(
+  date_start: '2017-05-14',
+  date_end: '2017-05-14',
   settings: {       # optional
-    columns: ['']   # see SoapyBing::Ads::Report::Base::DEFAULT_REPORT_SETTINGS[:columns]
+    columns: ['']   # see SoapyBing::Report::Base::DEFAULT_REPORT_SETTINGS[:columns]
   }
 )
-report.rows # =>
-            #     [{
-            #       "GregorianDate" => "2015-10-14"
-            #       "Hour"          => "0",
-            #       "CampaignName"  => "My Campaign",
-            #       "Impressions"   => "100",
-            #       "Clicks"        => "47",
-            #       "Spend"         => "12.65"
-            #     }, {
-            #       ...
-            #     }]
+# =>
+#     [{
+#       "GregorianDate" => "2017-05-14"
+#       "Hour"          => "0",
+#       "CampaignName"  => "My Campaign",
+#       "Impressions"   => "100",
+#       "Clicks"        => "47",
+#       "Spend"         => "12.65"
+#     }, {
+#       ...
+#     }]
 ```
 
 ## Authentication
 
-Authentication attributes could be passed explicitly when new instance of SoapyBing::Ads is created.
-Or they could be configured as Envronment variables.
+Authentication attributes could be passed explicitly when new instance of SoapyBing::Reports is created.
+Or they could be configured as Environment variables.
 
 ```ruby
-SoapyBing::Ads.new(
-  oauth: {                  # optional, could be configured via environment variables as
+SoapyBing::Reports.new(
+  oauth_credentials: {      # optional, could be configured via environment variables as
     client_id: '',          # ENV['BING_ADS_OAUTH_CLIENT_ID']
     client_secret: '',      # ENV['BING_ADS_OAUTH_CLIENT_SECRET']
     refresh_token: ''       # ENV['BING_ADS_OAUTH_REFRESH_TOKEN']

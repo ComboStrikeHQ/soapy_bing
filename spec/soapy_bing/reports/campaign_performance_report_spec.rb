@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 require 'date'
 
-RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
-  let(:report_options) { { oauth_credentials: nil, account: nil } }
-  subject(:report) { described_class.new report_options }
+RSpec.describe SoapyBing::Reports::CampaignPerformanceReport do
+  subject(:report) { described_class.new(report_options) }
+  let(:report_options) { { service: service_double } }
+  let(:service_double) { double }
 
   describe '#initialize' do
     let(:wrong_date) { 'wrong_date' }
@@ -36,6 +37,28 @@ RSpec.describe SoapyBing::Ads::Reports::CampaignPerformanceReport do
     context 'end' do
       it 'keeps initialized value' do
         expect(report.date_range.end).to eq Date.parse(date_end)
+      end
+    end
+  end
+
+  describe '#rows' do
+    context 'with failed response' do
+      let(:date) { '2016-09-15' }
+      before do
+        report_options.merge!(date_start: date, date_end: date)
+        allow(service_double).to receive(:submit_generate_report) do
+          { report_request_id: '123' }
+        end
+        allow(service_double).to receive(:poll_generate_report) do
+          {
+            report_request_status: { status: 'Error' }
+          }
+        end
+      end
+
+      it 'raises StatusFailed' do
+        expect { report.rows }.to raise_error SoapyBing::Reports::StatusFailed
+        expect(service_double).to have_received(:poll_generate_report).once
       end
     end
   end
