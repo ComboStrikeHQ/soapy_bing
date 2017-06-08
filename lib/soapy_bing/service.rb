@@ -37,7 +37,7 @@ module SoapyBing
     def initialize(oauth_credentials: {}, customer: {}, account: {}, savon_globals: {}, &block)
       @oauth_credentials = SoapyBing::OauthCredentials.new(oauth_credentials)
       @customer = SoapyBing::Customer.new(customer)
-      @account = SoapyBing::Account.new(account)
+      @account = SoapyBing::Account.new(account) if account_id?(account)
       @savon_client = Savon::Client.new(savon_globals, &block)
     end
 
@@ -53,6 +53,10 @@ module SoapyBing
 
     def operation?(method)
       savon_client.operations.include?(method)
+    end
+
+    def account_id?(account)
+      account.fetch(:account_id, ENV['BING_ADS_ACCOUNT_ID'])
     end
 
     def call(operation_name, message, &block)
