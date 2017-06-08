@@ -26,12 +26,13 @@ module SoapyBing
     private
 
     def soap_header
-      {
+      header = {
         action: convert_key(name),
         authentication_token: oauth_credentials.access_token,
-        developer_token: customer.developer_token,
-        customer_account_id: account.account_id
-      }.transform_keys do |key|
+        developer_token: customer.developer_token
+      }
+      header[:customer_account_id] = account.account_id if account
+      header.transform_keys do |key|
         "#{namespace_identifier}:#{convert_key(key)}"
       end
     end
