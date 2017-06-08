@@ -1,10 +1,12 @@
 # frozen_string_literal: true
+
 require 'json'
 require 'csv'
 
 RSpec.describe SoapyBing::Reports::Parsers::CSVParser do
   describe '#rows' do
     subject(:rows) { described_class.new(csv_data).rows }
+
     context 'on valid CSV data' do
       let(:csv_fixture_path) do
         File.join('spec', 'fixtures', 'reports', 'campaign_performance_report.csv')

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::Helpers::ZipDownloader do
   describe '#read' do
     let(:hello_zip_file_path) { File.join('spec', 'fixtures', 'helpers', 'hello.zip') }
@@ -6,6 +7,7 @@ RSpec.describe SoapyBing::Helpers::ZipDownloader do
       instance_double(HTTParty::Response, body: File.read(hello_zip_file_path))
     end
     let(:download_url) { 'https://example.com/file.zip' }
+
     subject(:instance) { described_class.new(download_url) }
 
     it 'unzips and reads file content' do

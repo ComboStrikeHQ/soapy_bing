@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 require 'soapy_bing/bulk/parsers/csv_parser'
 
 module SoapyBing
   class Bulk
     class Campaigns
-      DEFAULT_ENTITIES = %w(CampaignTargetCriterions Ads).freeze
+      DEFAULT_ENTITIES = %w[CampaignTargetCriterions Ads].freeze
       DEFAULT_POLLING_SETTINGS = {
         tries: 20,
         sleep: ->(n) { n < 7 ? 2**n : 120 }

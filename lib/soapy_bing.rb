@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'httparty'
 require 'retryable'
 require 'active_support'

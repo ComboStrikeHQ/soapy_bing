@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'ostruct'
 require 'soapy_bing/reports/parsers/csv_parser'
 
@@ -13,7 +14,7 @@ module SoapyBing
         language:    'English',
         name:        'MyReport',
         aggregation: 'Hourly',
-        columns:     %w(TimePeriod CampaignName Impressions Clicks Spend CampaignId)
+        columns:     %w[TimePeriod CampaignName Impressions Clicks Spend CampaignId]
       }.freeze
 
       DEFAULT_POLLING_SETTINGS = {

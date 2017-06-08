@@ -1,10 +1,12 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::OauthCredentials do
   subject(:oauth_credentials) { described_class.new(credentials) }
 
   describe '#initialize' do
     context 'when oauth credentials passed explicitly' do
       let(:credentials) { { client_id: 'foo', client_secret: 'bar', refresh_token: 'baz' } }
+
       before do
         allow(ENV).to receive(:[]).with('BING_ADS_OAUTH_CLIENT_ID').and_return('foo_env')
         allow(ENV).to receive(:[]).with('BING_ADS_OAUTH_CLIENT_SECRET').and_return('bar_env')
@@ -27,6 +29,7 @@ RSpec.describe SoapyBing::OauthCredentials do
 
     context 'when oauth credentials passed via Enviromenment variables' do
       let(:credentials) { {} }
+
       before do
         allow(ENV).to receive(:[]).with('BING_ADS_OAUTH_CLIENT_ID').and_return('foo_env')
         allow(ENV).to receive(:[]).with('BING_ADS_OAUTH_CLIENT_SECRET').and_return('bar_env')
@@ -49,10 +52,11 @@ RSpec.describe SoapyBing::OauthCredentials do
 
     context 'when no oauth credentials passed' do
       let(:credentials) { { client_id: 'foo', client_secret: 'bar', refresh_token: 'baz' } }
+
       before do
-        %w( BING_ADS_OAUTH_CLIENT_ID
+        %w[ BING_ADS_OAUTH_CLIENT_ID
             BING_ADS_OAUTH_CLIENT_SECRET
-            BING_ADS_OAUTH_REFRESH_TOKEN ).each do |var|
+            BING_ADS_OAUTH_REFRESH_TOKEN ].each do |var|
           allow(ENV).to receive(:[]).with(var).and_return(nil)
         end
       end

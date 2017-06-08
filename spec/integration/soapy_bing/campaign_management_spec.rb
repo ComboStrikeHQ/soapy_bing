@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::CampaignManagement do
   subject(:campaign_management) { described_class.new }
 

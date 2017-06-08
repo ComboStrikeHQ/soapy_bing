@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module SoapyBing
   class Accounts
     attr_reader :service

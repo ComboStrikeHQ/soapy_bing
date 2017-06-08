@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'cgi'
 require 'vcr'
 require 'active_support/core_ext/hash/conversions'
@@ -7,7 +8,7 @@ VCR.configure do |c|
   c.configure_rspec_metadata!
   c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   c.hook_into :webmock
-  c.default_cassette_options = { match_requests_on: %i(method uri body) }
+  c.default_cassette_options = { match_requests_on: %i[method uri body] }
 
   c.filter_sensitive_data('bing-ads-oauth-client-id') { ENV['BING_ADS_OAUTH_CLIENT_ID'] }
   c.filter_sensitive_data('bing-ads-oauth-client-secret') { ENV['BING_ADS_OAUTH_CLIENT_SECRET'] }

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::Account do
   describe '#initialize' do
     subject(:account_obj) { described_class.new(account) }
@@ -7,6 +8,7 @@ RSpec.describe SoapyBing::Account do
       let(:account) do
         { developer_token: 'foo', account_id: 'baz', customer_id: 'qux' }
       end
+
       before do
         allow(ENV).to receive(:[]).with('BING_ADS_DEVELOPER_TOKEN').and_return('foo_env')
         allow(ENV).to receive(:[]).with('BING_ADS_ACCOUNT_ID').and_return('baz_env')
@@ -28,6 +30,7 @@ RSpec.describe SoapyBing::Account do
 
     context 'when account credentials passed via Enviromenment variables' do
       let(:account) { {} }
+
       before do
         allow(ENV).to receive(:[]).with('BING_ADS_DEVELOPER_TOKEN').and_return('foo_env')
         allow(ENV).to receive(:[]).with('BING_ADS_ACCOUNT_ID').and_return('baz_env')
@@ -51,10 +54,11 @@ RSpec.describe SoapyBing::Account do
       let(:account) do
         { developer_token: 'foo', account_id: 'baz', customer_id: 'qux' }
       end
+
       before do
-        %w( BING_ADS_DEVELOPER_TOKEN
+        %w[ BING_ADS_DEVELOPER_TOKEN
             BING_ADS_ACCOUNT_ID
-            BING_ADS_CUSTOMER_ID ).each do |var|
+            BING_ADS_CUSTOMER_ID ].each do |var|
           allow(ENV).to receive(:[]).with(var).and_return(nil)
         end
       end

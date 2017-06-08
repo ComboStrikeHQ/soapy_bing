@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::Bulk::Campaigns do
   subject(:campaigns) do
     described_class.new(
@@ -61,6 +62,7 @@ RSpec.describe SoapyBing::Bulk::Campaigns do
 
     context 'with polling_tries = 1' do
       let(:polling_settings) { { tries: 1 } }
+
       it 'raises NotCompleted error after exceeded polling tries' do
         expect { campaigns.rows }.to raise_error described_class::NotCompleted
         expect(service_double).to have_received(:get_bulk_download_status).once

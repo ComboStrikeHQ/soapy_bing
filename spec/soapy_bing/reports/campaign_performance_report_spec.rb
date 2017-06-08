@@ -1,8 +1,10 @@
 # frozen_string_literal: true
+
 require 'date'
 
 RSpec.describe SoapyBing::Reports::CampaignPerformanceReport do
   subject(:report) { described_class.new(report_options) }
+
   let(:report_options) { { service: service_double } }
   let(:service_double) { double }
 
@@ -13,6 +15,7 @@ RSpec.describe SoapyBing::Reports::CampaignPerformanceReport do
       before { report_options.merge!(date_start: wrong_date) }
 
       let(:start_date) { 'wrong_date' }
+
       it 'throws exception' do
         expect { report }.to raise_error(ArgumentError, 'invalid date')
       end
@@ -22,6 +25,7 @@ RSpec.describe SoapyBing::Reports::CampaignPerformanceReport do
   describe '#date_range' do
     let(:date_start) { '2011-01-01' }
     let(:date_end) { '2015-12-31' }
+
     before { report_options.merge!(date_start: date_start, date_end: date_end) }
 
     it 'is instance of Range' do
@@ -44,6 +48,7 @@ RSpec.describe SoapyBing::Reports::CampaignPerformanceReport do
   describe '#rows' do
     context 'with failed response' do
       let(:date) { '2016-09-15' }
+
       before do
         report_options.merge!(date_start: date, date_end: date)
         allow(service_double).to receive(:submit_generate_report) do

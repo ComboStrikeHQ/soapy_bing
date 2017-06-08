@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::Service do
   subject(:service) { described_class.campaign_management }
 
