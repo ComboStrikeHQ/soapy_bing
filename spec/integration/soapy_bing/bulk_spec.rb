@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::Bulk do
   subject(:service) { described_class.new }
 
@@ -8,7 +9,7 @@ RSpec.describe SoapyBing::Bulk do
     end
 
     it 'returns parsed rows' do
-      expect(service.campaigns(%w(Campaigns))).to eq fixtured_payload
+      expect(service.campaigns(%w[Campaigns])).to eq fixtured_payload
     end
   end
 end

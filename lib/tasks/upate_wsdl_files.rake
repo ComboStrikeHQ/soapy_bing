@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dotenv'
 Dotenv.load('.env.local', '.env')
 require 'soapy_bing'

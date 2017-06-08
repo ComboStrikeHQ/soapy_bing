@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::Accounts do
   subject(:instance) { described_class.new }
 

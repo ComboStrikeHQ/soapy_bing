@@ -1,7 +1,9 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::ParamGuard do
   describe '#require!' do
     let(:param_guard) { described_class.new(options, env_namespace: 'MY') }
+
     subject(:require_foo) { param_guard.require!(:foo) }
 
     context 'when option is empty' do

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module SoapyBing
   class Customer
     attr_reader :developer_token, :customer_id

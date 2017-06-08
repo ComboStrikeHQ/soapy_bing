@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::CountryCodes do
   subject(:country_codes) { described_class.new }
 

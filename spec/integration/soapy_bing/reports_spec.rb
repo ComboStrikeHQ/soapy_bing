@@ -1,10 +1,12 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::Reports do
   subject(:service) { described_class.new }
+
   let(:date) { '2016-10-14' }
   let(:settings) do
     # CampaignName is considered to be a sensitive data, lets not record it
-    { columns: %w(TimePeriod Impressions Clicks Spend) }
+    { columns: %w[TimePeriod Impressions Clicks Spend] }
   end
   let(:polling_settings) { {} }
   let(:params) do

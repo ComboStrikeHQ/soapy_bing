@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'soapy_bing/reports/base'
 require 'soapy_bing/reports/campaign_performance_report'
 

@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 require 'dotenv'
 Dotenv.load('.env.local', '.env')
 require 'soapy_bing'
 
 desc 'Fetch country codes from geo_locations API and update country_codes.yml file'
 task :update_country_codes do
-  TARGET_TYPES = %w(Country State).freeze
+  TARGET_TYPES = %w[Country State].freeze
 
   campaign_management = SoapyBing::CampaignManagement.new
   rows = campaign_management.get_geo_locations

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe SoapyBing::OauthCredentials do
   subject(:oauth_credentials) { described_class.new }
 
