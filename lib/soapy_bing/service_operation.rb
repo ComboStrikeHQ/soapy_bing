@@ -13,10 +13,10 @@ module SoapyBing
       @name = name
     end
 
-    def call(message)
+    def call(message = {})
       response = savon_client.call(
         name,
-        message: message,
+        message: block_given? ? yield(namespace_identifier) : message,
         soap_header: soap_header
       )
       response.body[output]

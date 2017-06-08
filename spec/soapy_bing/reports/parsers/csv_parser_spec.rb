@@ -2,7 +2,7 @@
 require 'json'
 require 'csv'
 
-RSpec.describe SoapyBing::Ads::Reports::Parsers::CSVParser do
+RSpec.describe SoapyBing::Reports::Parsers::CSVParser do
   describe '#rows' do
     subject(:rows) { described_class.new(csv_data).rows }
     context 'on valid CSV data' do

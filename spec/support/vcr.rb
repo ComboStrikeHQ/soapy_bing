@@ -90,7 +90,7 @@ VCR.configure do |c|
 
       fixtures_dir = File.join('spec', 'fixtures', 'reports')
       File.open(File.join(fixtures_dir, 'campaign_performance_report.json'), 'wb') do |file|
-        parser = SoapyBing::Ads::Reports::Parsers::CSVParser.new(csv_data)
+        parser = SoapyBing::Reports::Parsers::CSVParser.new(csv_data)
         file.write(JSON.pretty_generate(parser.rows))
       end
       File.open(File.join(fixtures_dir, 'campaign_performance_report.csv'), 'wb') do |file|
