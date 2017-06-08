@@ -3,9 +3,9 @@
 require 'csv'
 
 module SoapyBing
-  class Bulk
+  class Ads
     module Parsers
-      class CSVParser
+      class BulkCsvParser
         def initialize(raw)
           @raw = raw
         end

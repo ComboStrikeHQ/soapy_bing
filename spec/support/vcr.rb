@@ -78,9 +78,9 @@ VCR.configure do |c|
   end
 
   c.before_record do |interaction|
-    # auto-generate report payload fixtures
-    # spec/fixtures/reports/campaign_performance_report.json
-    # spec/fixtures/reports/campaing_performance_report.csv
+    # auto-generate campaign_performance_report payload fixtures
+    # spec/fixtures/ads/campaign_performance_report.json
+    # spec/fixtures/ads/campaing_performance_report.csv
     next unless interaction.request.uri =~ /ReportDownload/
     if interaction.response.headers['Content-Type'].first == 'application/x-zip-compressed'
       # refactor zip into module
@@ -89,9 +89,9 @@ VCR.configure do |c|
         file_io.read
       end
 
-      fixtures_dir = File.join('spec', 'fixtures', 'reports')
+      fixtures_dir = File.join('spec', 'fixtures', 'ads')
       File.open(File.join(fixtures_dir, 'campaign_performance_report.json'), 'wb') do |file|
-        parser = SoapyBing::Reports::Parsers::CSVParser.new(csv_data)
+        parser = SoapyBing::Ads::Parsers::ReportCsvParser.new(csv_data)
         file.write(JSON.pretty_generate(parser.rows))
       end
       File.open(File.join(fixtures_dir, 'campaign_performance_report.csv'), 'wb') do |file|
@@ -101,9 +101,9 @@ VCR.configure do |c|
   end
 
   c.before_record do |interaction|
-    # auto-generate bulk payload fixtures
-    # spec/fixtures/bulk/campaigns.json
-    # spec/fixtures/bulk/campaings.csv
+    # auto-generate campaigns payload fixtures
+    # spec/fixtures/ads/campaigns.json
+    # spec/fixtures/ads/campaings.csv
     next unless interaction.request.uri =~ /bulkdownloadresultfiles/
     body_zip_entry_name = nil
     unzipped_body = Zip::InputStream.open(StringIO.new(interaction.response.body)) do |archive_io|
@@ -114,7 +114,7 @@ VCR.configure do |c|
 
     unzipped_body.gsub!(ENV['BING_ADS_ACCOUNT_ID'], '123456')
 
-    rows = SoapyBing::Ads::Bulk::Parsers::CSVParser.new(unzipped_body).rows[0..5]
+    rows = SoapyBing::Ads::Parsers::BulkCsvParser.new(unzipped_body).rows[0..5]
 
     rows.map do |row|
       next unless row['Type'] == 'Campaign'
@@ -128,7 +128,7 @@ VCR.configure do |c|
       end
     end
 
-    fixtures_dir = File.join('spec', 'fixtures', 'bulk')
+    fixtures_dir = File.join('spec', 'fixtures', 'ads')
     File.open(File.join(fixtures_dir, 'campaigns.csv'), 'wb') do |file|
       file.write(modified_csv)
     end

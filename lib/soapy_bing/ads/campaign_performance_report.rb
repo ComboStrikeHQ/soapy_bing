@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
+require 'soapy_bing/ads/report'
 require 'date'
 
 module SoapyBing
-  class Reports
-    class CampaignPerformanceReport < Base
+  class Ads
+    class CampaignPerformanceReport < Report
       attr_reader :date_range
 
       def initialize(options)

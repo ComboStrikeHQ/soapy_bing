@@ -3,18 +3,18 @@
 require 'json'
 require 'csv'
 
-RSpec.describe SoapyBing::Reports::Parsers::CSVParser do
+RSpec.describe SoapyBing::Ads::Parsers::ReportCsvParser do
   describe '#rows' do
     subject(:rows) { described_class.new(csv_data).rows }
 
     context 'on valid CSV data' do
       let(:csv_fixture_path) do
-        File.join('spec', 'fixtures', 'reports', 'campaign_performance_report.csv')
+        File.join('spec', 'fixtures', 'ads', 'campaign_performance_report.csv')
       end
       let(:csv_data) { File.read(csv_fixture_path) }
 
       let(:json_fixture_path) do
-        File.join('spec', 'fixtures', 'reports', 'campaign_performance_report.json')
+        File.join('spec', 'fixtures', 'ads', 'campaign_performance_report.json')
       end
       let(:json_data) { JSON.parse(File.read(json_fixture_path)) }
 

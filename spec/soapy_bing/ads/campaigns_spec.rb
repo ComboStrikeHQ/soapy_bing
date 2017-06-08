@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-RSpec.describe SoapyBing::Bulk::Campaigns do
+RSpec.describe SoapyBing::Ads::Campaigns do
   subject(:campaigns) do
     described_class.new(
-      service: service_double,
+      service_options: {},
       polling_settings: polling_settings
     )
   end
@@ -28,6 +28,8 @@ RSpec.describe SoapyBing::Bulk::Campaigns do
     end
 
     before do
+      allow(SoapyBing::Service).to receive(:bulk).and_return(service_double)
+
       allow(SoapyBing::Helpers::ZipDownloader).to receive(:new)
         .with('http://example.com/result_file')
         .and_return(zip_downloader_double)
