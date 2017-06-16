@@ -6,14 +6,12 @@ require 'date'
 module SoapyBing
   class Ads
     class CampaignPerformanceReport < Report
-      attr_reader :date_range
+      attr_reader :date_start, :date_end
 
       def initialize(options)
         super
-        @date_range = Range.new(
-          Date.parse(options.fetch(:date_start)),
-          Date.parse(options.fetch(:date_end))
-        )
+        @date_start = Date.parse(options.fetch(:date_start))
+        @date_end = Date.parse(options.fetch(:date_end))
       end
 
       def message
@@ -22,8 +20,8 @@ module SoapyBing
           columns: { campaign_performance_report_column: settings.columns },
           scope: scope,
           time: {
-            custom_date_range_end: date_hash(date_range.end),
-            custom_date_range_start: date_hash(date_range.begin)
+            custom_date_range_end: date_hash(date_end),
+            custom_date_range_start: date_hash(date_start)
           }
         }
       end
