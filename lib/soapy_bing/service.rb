@@ -21,10 +21,13 @@ module SoapyBing
       # rubocop:enable all
 
       def build(bing_ads_service, options)
-        options[:savon_globals] ||= {}
-        options[:savon_globals][:wsdl] = local_wsdl_path_for(bing_ads_service)
-        options[:savon_globals] = DEFAULT_GLOBALS.merge(options[:savon_globals])
-        new(options)
+        new(
+          options.merge(
+            savon_globals: DEFAULT_GLOBALS.merge(
+              wsdl: local_wsdl_path_for(bing_ads_service)
+            ).merge(options.fetch(:savon_globals, {}))
+          )
+        )
       end
 
       def local_wsdl_path_for(service)

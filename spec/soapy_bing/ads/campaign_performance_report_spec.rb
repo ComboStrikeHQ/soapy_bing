@@ -22,29 +22,6 @@ RSpec.describe SoapyBing::Ads::CampaignPerformanceReport do
     end
   end
 
-  describe '#date_range' do
-    let(:date_start) { '2011-01-01' }
-    let(:date_end) { '2015-12-31' }
-
-    before { report_options.merge!(date_start: date_start, date_end: date_end) }
-
-    it 'is instance of Range' do
-      expect(report.date_range).to be_an_instance_of Range
-    end
-
-    context 'begin' do
-      it 'keeps initialized value' do
-        expect(report.date_range.begin).to eq Date.parse(date_start)
-      end
-    end
-
-    context 'end' do
-      it 'keeps initialized value' do
-        expect(report.date_range.end).to eq Date.parse(date_end)
-      end
-    end
-  end
-
   describe '#rows' do
     context 'with failed response' do
       let(:date) { '2016-09-15' }

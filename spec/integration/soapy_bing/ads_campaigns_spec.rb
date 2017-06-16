@@ -3,14 +3,15 @@
 RSpec.describe SoapyBing::Ads do
   subject(:ads) { described_class.new }
 
+  def fixtured_payload(path)
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'ads', "#{path}.json")))
+  end
+
   describe '#campaigns', :vcr do
     let(:entities) { %w[Campaigns] }
-    let(:fixtured_payload) do
-      JSON.parse(File.read(File.join('spec', 'fixtures', 'ads', 'campaigns.json')))
-    end
 
     it 'returns parsed rows' do
-      expect(ads.campaigns(entities)).to eq fixtured_payload
+      expect(ads.campaigns(entities)).to eq fixtured_payload('campaigns')
     end
   end
 
@@ -29,13 +30,6 @@ RSpec.describe SoapyBing::Ads do
         polling_settings: polling_settings
       }
     end
-    let(:fixtured_payload) do
-      JSON.parse(
-        File.read(
-          File.join('spec', 'fixtures', 'ads', 'campaign_performance_report.json')
-        )
-      )
-    end
 
     context 'when there is a successful empty response during polling' do
       it 'responds with empty report rows',
@@ -49,7 +43,9 @@ RSpec.describe SoapyBing::Ads do
 
       it 'responds with report rows',
         vcr: { cassette_name: 'campaign_performance_report/with_successful_response' } do
-        expect(ads.campaign_performance_report(params)).to eq fixtured_payload
+        expect(ads.campaign_performance_report(params)).to eq(
+          fixtured_payload('campaign_performance_report')
+        )
       end
     end
 
