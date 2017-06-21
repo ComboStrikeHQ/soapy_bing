@@ -7,12 +7,12 @@ RSpec.describe SoapyBing::Ads::Parsers::BulkCsvParser do
     subject(:rows) { described_class.new(csv_data).rows }
 
     let(:csv_fixture_path) do
-      File.join('spec', 'fixtures', 'ads', 'campaigns.csv')
+      File.join('spec', 'fixtures', 'ads', 'campaigns_by_account_id.csv')
     end
     let(:csv_data) { File.read(csv_fixture_path) }
 
     let(:json_fixture_path) do
-      File.join('spec', 'fixtures', 'ads', 'campaigns.json')
+      File.join('spec', 'fixtures', 'ads', 'campaigns_by_account_id.json')
     end
     let(:json_data) { JSON.parse(File.read(json_fixture_path)) }
 

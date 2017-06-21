@@ -7,11 +7,34 @@ RSpec.describe SoapyBing::Ads do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'ads', "#{path}.json")))
   end
 
+  let(:polling_settings) do
+    # disable poll sleeping on playback
+    { sleep: VCR.current_cassette.recording? ? 120 : 0 }
+  end
+
   describe '#campaigns', :vcr do
     let(:entities) { %w[Campaigns] }
 
-    it 'returns parsed rows' do
-      expect(ads.campaigns(entities)).to eq fixtured_payload('campaigns')
+    context 'by account_id' do
+      it 'returns parsed rows' do
+        expect(
+          ads.campaigns(entities, polling_settings: polling_settings)
+        ).to eq fixtured_payload('campaigns_by_account_id')
+      end
+    end
+
+    context 'by campaign_ids' do
+      let(:campaign_ids) { [90868686, 90876598] }
+
+      it 'returns parsed rows' do
+        expect(
+          ads.campaigns(
+            entities,
+            campaign_ids: campaign_ids,
+            polling_settings: polling_settings
+          )
+        ).to eq fixtured_payload('campaigns_by_campaign_ids')
+      end
     end
   end
 
@@ -21,7 +44,6 @@ RSpec.describe SoapyBing::Ads do
       # CampaignName is considered to be a sensitive data, lets not record it
       { columns: %w[TimePeriod Impressions Clicks Spend] }
     end
-    let(:polling_settings) { {} }
     let(:params) do
       {
         date_start: date,
@@ -50,7 +72,7 @@ RSpec.describe SoapyBing::Ads do
     end
 
     context 'when there is only pending responses during polling' do
-      let(:polling_settings) { { tries: 1 } }
+      let(:polling_settings) { { tries: 1, sleep: 0 } }
 
       it 'throws exception PollingTimeoutError',
         vcr: { cassette_name: 'campaign_performance_report/with_pending_status' } do
