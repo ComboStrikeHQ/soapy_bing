@@ -100,11 +100,17 @@ VCR.configure do |c|
     end
   end
 
-  c.before_record do |interaction|
+  c.before_record do |interaction, cassette|
     # auto-generate campaigns payload fixtures
-    # spec/fixtures/ads/campaigns.json
-    # spec/fixtures/ads/campaings.csv
+    # spec/fixtures/ads/campaigns_by_account_id.json
+    # spec/fixtures/ads/campaings_by_account_id.csv
+    # spec/fixtures/ads/campaigns_by_campaign_ids.json
+    # spec/fixtures/ads/campaings_by_campaign_ids.csv
     next unless interaction.request.uri =~ /bulkdownloadresultfiles/
+
+    campaigns_ids = cassette.name =~ /by campaign_ids/
+    fixture_name = "campaigns_by_#{campaigns_ids ? 'campaign_ids' : 'account_id'}"
+
     body_zip_entry_name = nil
     unzipped_body = Zip::InputStream.open(StringIO.new(interaction.response.body)) do |archive_io|
       entry = archive_io.get_next_entry
@@ -116,6 +122,7 @@ VCR.configure do |c|
 
     rows = SoapyBing::Ads::Parsers::BulkCsvParser.new(unzipped_body).rows[0..5]
 
+    # Replace campaign names because it is sensitive data
     rows.map do |row|
       next unless row['Type'] == 'Campaign'
       row['Campaign'] = "Campaign #{row['Id']}"
@@ -129,11 +136,11 @@ VCR.configure do |c|
     end
 
     fixtures_dir = File.join('spec', 'fixtures', 'ads')
-    File.open(File.join(fixtures_dir, 'campaigns.csv'), 'wb') do |file|
+    File.open(File.join(fixtures_dir, "#{fixture_name}.csv"), 'wb') do |file|
       file.write(modified_csv)
     end
 
-    File.open(File.join(fixtures_dir, 'campaigns.json'), 'wb') do |file|
+    File.open(File.join(fixtures_dir, "#{fixture_name}.json"), 'wb') do |file|
       file.write(JSON.pretty_generate(rows))
     end
 
