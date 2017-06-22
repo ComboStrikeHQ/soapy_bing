@@ -56,6 +56,10 @@ module SoapyBing
       end
 
       def download_request_id
+        @download_request_id ||= download_campaigns
+      end
+
+      def download_campaigns
         response = campaign_ids ? by_campaign_ids : by_account_ids
         response[:download_request_id]
       end

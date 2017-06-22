@@ -65,6 +65,10 @@ module SoapyBing
       end
 
       def report_request_id
+        @report_request_id ||= submit_generate_report
+      end
+
+      def submit_generate_report
         response = service.submit_generate_report do |namespace_identifier|
           {
             report_request: {
