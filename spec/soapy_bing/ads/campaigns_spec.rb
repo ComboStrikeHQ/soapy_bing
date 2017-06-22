@@ -59,6 +59,7 @@ RSpec.describe SoapyBing::Ads::Campaigns do
           { 'a' => 'e', 'b' => 'f' }
         ]
       )
+      expect(service_double).to have_received(:download_campaigns_by_account_ids).once
       expect(service_double).to have_received(:get_bulk_download_status).exactly(3).times
     end
 
