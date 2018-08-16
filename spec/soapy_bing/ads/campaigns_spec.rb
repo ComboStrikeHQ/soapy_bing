@@ -74,18 +74,16 @@ RSpec.describe SoapyBing::Ads::Campaigns do
 
     context 'with failed response' do
       before do
-        allow(service_double).to receive(:get_bulk_download_status) do
-          {
-            request_status: 'Failed',
-            errors: {
-              operation_error: {
-                code: '0',
-                error_code: 'InternalError',
-                message: 'An internal error has occurred'
-              }
+        allow(service_double).to receive(:get_bulk_download_status).and_return(
+          request_status: 'Failed',
+          errors: {
+            operation_error: {
+              code: '0',
+              error_code: 'InternalError',
+              message: 'An internal error has occurred'
             }
           }
-        end
+        )
       end
 
       it 'raises StatusFailed with error message' do
