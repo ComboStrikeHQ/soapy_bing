@@ -46,11 +46,11 @@ RSpec.describe SoapyBing::Service do
 
   describe '#respond_to?' do
     it 'responds to service operations' do
-      expect(service.respond_to?(:get_ads_by_ids)).to be_truthy
+      expect(service).to respond_to(:get_ads_by_ids)
     end
 
     it 'doest respond to anything' do
-      expect(service.respond_to?(:answer_to_life_universe_and_everything)).to be_falsey
+      expect(service).not_to respond_to(:answer_to_life_universe_and_everything)
     end
   end
 end

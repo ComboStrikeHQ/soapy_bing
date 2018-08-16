@@ -45,9 +45,7 @@ RSpec.describe SoapyBing::Ads::CampaignPerformanceReport do
 
     before do
       allow(SoapyBing::Service).to receive(:reporting).and_return(service_double)
-      allow(service_double).to receive(:submit_generate_report) do
-        { report_request_id: '123' }
-      end
+      allow(service_double).to receive(:submit_generate_report).and_return(report_request_id: '123')
       allow(service_double).to receive(:poll_generate_report) do
         {
           report_request_status: { status: status }

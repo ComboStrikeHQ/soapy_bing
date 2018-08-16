@@ -86,16 +86,15 @@ RSpec.describe SoapyBing::OauthCredentials do
     let(:response) { double(:response) } # rubocop:disable RSpec/VerifiedDoubles
 
     before do
-      expect(response).to receive(:code).once.and_return(status_code)
-      expect(HTTParty).to receive(:post).once.and_return(response)
+      allow(response).to receive(:code).once.and_return(status_code)
+      allow(HTTParty).to receive(:post).once.and_return(response)
     end
 
     context 'when there is good response' do
       let(:status_code) { 200 }
 
-      before { expect(response).to receive(:[]).once.with('access_token').and_return('my-token') }
-
       it 'memoizes http request response' do
+        expect(response).to receive(:[]).once.with('access_token').and_return('my-token')
         2.times { expect(oauth_credentials.access_token).to eq 'my-token' }
       end
     end

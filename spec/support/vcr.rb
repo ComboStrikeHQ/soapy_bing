@@ -81,7 +81,7 @@ VCR.configure do |c|
     # auto-generate campaign_performance_report payload fixtures
     # spec/fixtures/ads/campaign_performance_report.json
     # spec/fixtures/ads/campaing_performance_report.csv
-    next unless interaction.request.uri =~ /ReportDownload/
+    next unless /ReportDownload/.match?(interaction.request.uri)
     if interaction.response.headers['Content-Type'].first == 'application/x-zip-compressed'
       # refactor zip into module
       csv_data = Zip::InputStream.open(StringIO.new(interaction.response.body)) do |archive_io|
@@ -106,7 +106,7 @@ VCR.configure do |c|
     # spec/fixtures/ads/campaings_by_account_id.csv
     # spec/fixtures/ads/campaigns_by_campaign_ids.json
     # spec/fixtures/ads/campaings_by_campaign_ids.csv
-    next unless interaction.request.uri =~ /bulkdownloadresultfiles/
+    next unless /bulkdownloadresultfiles/.match?(interaction.request.uri)
 
     campaigns_ids = cassette.name =~ /by campaign_ids/
     fixture_name = "campaigns_by_#{campaigns_ids ? 'campaign_ids' : 'account_id'}"
@@ -154,7 +154,7 @@ VCR.configure do |c|
 
   # reduce response size for get_geo_locations vcr file
   c.before_record do |interaction|
-    next unless interaction.request.uri =~ /GeoLocations\.csv/
+    next unless /GeoLocations\.csv/.match?(interaction.request.uri)
 
     rows = CSV.parse(interaction.response.body)[0..5]
 
