@@ -13,9 +13,18 @@ jobs:
           name: Check if Ruby versions match
           command: test "$(ruby -v | grep -oP '\d\.\d\.\d')" = "$(cat .ruby-version)"
 
+      - restore_cache:
+          keys:
+            - gem-cache-{{ checksum ".ruby-version" }}
+
       - run:
           name: Install dependencies
           command: bundle install --jobs=4 --retry=3
+
+      - save_cache:
+          key: gem-cache-{{ checksum ".ruby-version" }}
+          paths:
+            - vendor/bundle
 
       - persist_to_workspace:
           root: .
@@ -63,7 +72,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: "0 0 * * *"
+          cron: "0 0 * * 2"
           filters:
             branches:
               only:
