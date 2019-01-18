@@ -45,11 +45,11 @@ http_interactions:
   recorded_at: Mon, 05 Jun 2017 14:59:00 GMT
 - request:
     method: post
-    uri: https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V11/CampaignManagementService.svc
+    uri: https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V12/CampaignManagementService.svc
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/CampaignManagement/v11"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/CampaignManagement/v12"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>GetGeoLocationsFileUrl</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:GetGeoLocationsFileUrlRequest><tns:Version>1.0</tns:Version><tns:LanguageLocale>en</tns:LanguageLocale></tns:GetGeoLocationsFileUrlRequest></env:Body></env:Envelope>
     headers:
       Soapaction:
@@ -88,8 +88,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
-        xmlns:h="https://bingads.microsoft.com/CampaignManagement/v11">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><GetGeoLocationsFileUrlResponse
-        xmlns="https://bingads.microsoft.com/CampaignManagement/v11"><FileUrl>https://bingadsappsstorageprod.blob.core.windows.net/geolocationscsv/1.0/en/GeoLocations.csv?sv=2015-12-11&amp;sr=b&amp;sig=wrLaqR8eT8cKeJntsDD0hJ1hnm1KrkAid1c9VzfJfnw%3D&amp;st=2017-06-05T14%3A54%3A01Z&amp;se=2017-06-05T15%3A14%3A01Z&amp;sp=rl</FileUrl><FileUrlExpiryTimeUtc>2017-06-05T15:14:01Z</FileUrlExpiryTimeUtc><LastModifiedTimeUtc>2016-12-23T00:14:46Z</LastModifiedTimeUtc></GetGeoLocationsFileUrlResponse></s:Body></s:Envelope>
+        xmlns:h="https://bingads.microsoft.com/CampaignManagement/v12">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><GetGeoLocationsFileUrlResponse
+        xmlns="https://bingads.microsoft.com/CampaignManagement/v12"><FileUrl>https://bingadsappsstorageprod.blob.core.windows.net/geolocationscsv/1.0/en/GeoLocations.csv?sv=2015-12-11&amp;sr=b&amp;sig=wrLaqR8eT8cKeJntsDD0hJ1hnm1KrkAid1c9VzfJfnw%3D&amp;st=2017-06-05T14%3A54%3A01Z&amp;se=2017-06-05T15%3A14%3A01Z&amp;sp=rl</FileUrl><FileUrlExpiryTimeUtc>2017-06-05T15:14:01Z</FileUrlExpiryTimeUtc><LastModifiedTimeUtc>2016-12-23T00:14:46Z</LastModifiedTimeUtc></GetGeoLocationsFileUrlResponse></s:Body></s:Envelope>
     http_version: 
   recorded_at: Mon, 05 Jun 2017 14:59:01 GMT
 - request:

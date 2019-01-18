@@ -45,11 +45,11 @@ http_interactions:
   recorded_at: Wed, 07 Jun 2017 22:19:38 GMT
 - request:
     method: post
-    uri: https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/V11/ReportingService.svc
+    uri: https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/V12/ReportingService.svc
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/Reporting/v11"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/Reporting/v12"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>SubmitGenerateReport</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:SubmitGenerateReportRequest><tns:ReportRequest
         xsi:type="tns:CampaignPerformanceReportRequest"><tns:Format>Csv</tns:Format><tns:Language>English</tns:Language><tns:ReportName>MyReport</tns:ReportName><tns:ReturnOnlyCompletedData>false</tns:ReturnOnlyCompletedData><tns:Aggregation>Hourly</tns:Aggregation><tns:Columns><tns:CampaignPerformanceReportColumn>TimePeriod</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>Impressions</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>Clicks</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>Spend</tns:CampaignPerformanceReportColumn></tns:Columns><tns:Scope><tns:AccountIds
         xmlns:a1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a1:long>bing-ads-account-id</a1:long></tns:AccountIds></tns:Scope><tns:Time><tns:CustomDateRangeEnd><tns:Day>14</tns:Day><tns:Month>10</tns:Month><tns:Year>2016</tns:Year></tns:CustomDateRangeEnd><tns:CustomDateRangeStart><tns:Day>14</tns:Day><tns:Month>10</tns:Month><tns:Year>2016</tns:Year></tns:CustomDateRangeStart></tns:Time></tns:ReportRequest></tns:SubmitGenerateReportRequest></env:Body></env:Envelope>
@@ -86,17 +86,17 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
-        xmlns:h="https://bingads.microsoft.com/Reporting/v11">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><SubmitGenerateReportResponse
-        xmlns="https://bingads.microsoft.com/Reporting/v11"><ReportRequestId>bing-ads-report-request-id</ReportRequestId></SubmitGenerateReportResponse></s:Body></s:Envelope>
+        xmlns:h="https://bingads.microsoft.com/Reporting/v12">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><SubmitGenerateReportResponse
+        xmlns="https://bingads.microsoft.com/Reporting/v12"><ReportRequestId>bing-ads-report-request-id</ReportRequestId></SubmitGenerateReportResponse></s:Body></s:Envelope>
     http_version: 
   recorded_at: Wed, 07 Jun 2017 22:19:39 GMT
 - request:
     method: post
-    uri: https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/V11/ReportingService.svc
+    uri: https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/V12/ReportingService.svc
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/Reporting/v11"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/Reporting/v12"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>PollGenerateReport</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:PollGenerateReportRequest><tns:ReportRequestId>bing-ads-report-request-id</tns:ReportRequestId></tns:PollGenerateReportRequest></env:Body></env:Envelope>
     headers:
       Soapaction:
@@ -131,8 +131,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
-        xmlns:h="https://bingads.microsoft.com/Reporting/v11">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><PollGenerateReportResponse
-        xmlns="https://bingads.microsoft.com/Reporting/v11"><ReportRequestStatus xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ReportDownloadUrl
+        xmlns:h="https://bingads.microsoft.com/Reporting/v12">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><PollGenerateReportResponse
+        xmlns="https://bingads.microsoft.com/Reporting/v12"><ReportRequestStatus xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ReportDownloadUrl
         i:nil="true"/><Status>Pending</Status></ReportRequestStatus></PollGenerateReportResponse></s:Body></s:Envelope>
     http_version: 
   recorded_at: Wed, 07 Jun 2017 22:19:41 GMT
