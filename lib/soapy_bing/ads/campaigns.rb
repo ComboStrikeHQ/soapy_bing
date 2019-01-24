@@ -98,7 +98,7 @@ module SoapyBing
         {
           download_entities: { download_entity: entities },
           download_file_type: 'Csv',
-          format_version: '5.0'
+          format_version: '6.0'
         }
       end
     end

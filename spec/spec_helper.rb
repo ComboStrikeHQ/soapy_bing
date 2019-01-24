@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+ENV['BING_ADS_SANDBOX'] = '1'
 require 'simplecov_setup'
 
 require 'bundler/setup'

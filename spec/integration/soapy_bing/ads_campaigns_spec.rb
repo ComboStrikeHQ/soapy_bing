@@ -27,22 +27,22 @@ RSpec.describe SoapyBing::Ads do
       let(:campaign_ids) { [90868686, 90876598] }
 
       it 'returns parsed rows' do
-        expect(
-          ads.campaigns(
+          c = ads.campaigns(
             entities,
             campaign_ids: campaign_ids,
             polling_settings: polling_settings
           )
+        expect(
+          c
         ).to eq fixtured_payload('campaigns_by_campaign_ids')
       end
     end
   end
 
   describe '#campaign_performance_report' do
-    let(:date) { '2016-10-14' }
+    let(:date) { '2019-01-22' }
     let(:settings) do
-      # CampaignName is considered to be a sensitive data, lets not record it
-      { columns: %w[TimePeriod Impressions Clicks Spend] }
+      { columns: %w[CampaignName TimePeriod Impressions Clicks Spend] }
     end
     let(:params) do
       {
@@ -61,7 +61,7 @@ RSpec.describe SoapyBing::Ads do
     end
 
     context 'when there is a successful response during polling' do
-      let(:date) { '2017-05-14' }
+      let(:date) { '2019-01-23' }
 
       it 'responds with report rows',
         vcr: { cassette_name: 'campaign_performance_report/with_successful_response' } do

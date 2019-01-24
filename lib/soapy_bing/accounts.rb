@@ -10,7 +10,7 @@ module SoapyBing
 
     def list
       response = service.get_accounts_info
-      response[:accounts_info][:account_info].map do |account_info|
+      Array.wrap(response[:accounts_info][:account_info]).map do |account_info|
         build_account(account_info)
       end
     end

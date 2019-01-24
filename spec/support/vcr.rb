@@ -11,7 +11,9 @@ VCR.configure do |c|
   c.default_cassette_options = { match_requests_on: %i[method uri body] }
 
   c.filter_sensitive_data('bing-ads-oauth-client-id') { ENV['BING_ADS_OAUTH_CLIENT_ID'] }
-  c.filter_sensitive_data('bing-ads-oauth-client-secret') { ENV['BING_ADS_OAUTH_CLIENT_SECRET'] }
+  c.filter_sensitive_data('bing-ads-oauth-client-secret') do
+    CGI.escape(ENV['BING_ADS_OAUTH_CLIENT_SECRET'])
+  end
   c.filter_sensitive_data('bing-ads-oauth-refresh-token') do
     CGI.escape(ENV['BING_ADS_OAUTH_REFRESH_TOKEN'])
   end

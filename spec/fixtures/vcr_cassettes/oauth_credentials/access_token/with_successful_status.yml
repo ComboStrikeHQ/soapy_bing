@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://login.live.com/oauth20_token.srf
+    uri: https://login.live-int.com/oauth20_token.srf
     body:
       encoding: UTF-8
       string: client_id=bing-ads-oauth-client-id&client_secret=bing-ads-oauth-client-secret&grant_type=refresh_token&refresh_token=bing-ads-oauth-refresh-token
@@ -22,21 +22,27 @@ http_interactions:
       - no-store
       Pragma:
       - no-cache
-      Content-Length:
-      - '1317'
       Content-Type:
       - application/json
       Server:
       - Microsoft-IIS/8.5
+      Liveidtestresp:
+      - ''
+      Ppserver:
+      - 'PPV: 30 H: BY2INTIDSLGN11 V: 0'
       X-Content-Type-Options:
       - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Xss-Protection:
+      - 1; mode=block
       Date:
-      - Fri, 13 Nov 2015 14:23:33 GMT
-      Connection:
-      - close
+      - Thu, 24 Jan 2019 11:47:30 GMT
+      Content-Length:
+      - '1630'
     body:
       encoding: UTF-8
       string: '{"token_type":"bearer","expires_in":3600,"scope":"bingads.manage","access_token":"bing-ads-oauth-authentication-token","refresh_token":"bing-ads-oauth-refresh-token","user_id":"bing-ads-oauth-user-id"}'
     http_version: 
-  recorded_at: Fri, 13 Nov 2015 14:23:33 GMT
-recorded_with: VCR 3.0.0
+  recorded_at: Thu, 24 Jan 2019 11:47:31 GMT
+recorded_with: VCR 4.0.0

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://login.live.com/oauth20_token.srf
+    uri: https://login.live-int.com/oauth20_token.srf
     body:
       encoding: UTF-8
       string: client_id=bing-ads-oauth-client-id&client_secret=bing-ads-oauth-client-secret&grant_type=refresh_token&refresh_token=bing-ads-oauth-refresh-token
@@ -22,12 +22,14 @@ http_interactions:
       - no-store
       Pragma:
       - no-cache
-      Content-Length:
-      - '1509'
       Content-Type:
       - application/json
       Server:
       - Microsoft-IIS/8.5
+      Liveidtestresp:
+      - ''
+      Ppserver:
+      - 'PPV: 30 H: BY2INTIDSLGN11 V: 0'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -35,29 +37,29 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Thu, 22 Jun 2017 12:18:56 GMT
-      Connection:
-      - close
+      - Thu, 24 Jan 2019 11:41:11 GMT
+      Content-Length:
+      - '1630'
     body:
       encoding: UTF-8
       string: '{"token_type":"bearer","expires_in":3600,"scope":"bingads.manage","access_token":"bing-ads-oauth-authentication-token","refresh_token":"bing-ads-oauth-refresh-token","user_id":"bing-ads-oauth-user-id"}'
     http_version: 
-  recorded_at: Thu, 22 Jun 2017 12:18:57 GMT
+  recorded_at: Thu, 24 Jan 2019 11:41:12 GMT
 - request:
     method: post
-    uri: https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V12/BulkService.svc
+    uri: https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V12/BulkService.svc
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/CampaignManagement/v12"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>DownloadCampaignsByCampaignIds</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:DownloadCampaignsByCampaignIdsRequest><tns:Campaigns><tns:CampaignScope><tns:CampaignId>90868686</tns:CampaignId><tns:ParentAccountId>bing-ads-account-id</tns:ParentAccountId></tns:CampaignScope><tns:CampaignScope><tns:CampaignId>90876598</tns:CampaignId><tns:ParentAccountId>bing-ads-account-id</tns:ParentAccountId></tns:CampaignScope></tns:Campaigns><tns:DownloadEntities><tns:DownloadEntity>Campaigns</tns:DownloadEntity></tns:DownloadEntities><tns:DownloadFileType>Csv</tns:DownloadFileType><tns:FormatVersion>5.0</tns:FormatVersion></tns:DownloadCampaignsByCampaignIdsRequest></env:Body></env:Envelope>
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>DownloadCampaignsByCampaignIds</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:DownloadCampaignsByCampaignIdsRequest><tns:Campaigns><tns:CampaignScope><tns:CampaignId>90868686</tns:CampaignId><tns:ParentAccountId>bing-ads-account-id</tns:ParentAccountId></tns:CampaignScope><tns:CampaignScope><tns:CampaignId>90876598</tns:CampaignId><tns:ParentAccountId>bing-ads-account-id</tns:ParentAccountId></tns:CampaignScope></tns:Campaigns><tns:DownloadEntities><tns:DownloadEntity>Campaigns</tns:DownloadEntity></tns:DownloadEntities><tns:DownloadFileType>Csv</tns:DownloadFileType><tns:FormatVersion>6.0</tns:FormatVersion></tns:DownloadCampaignsByCampaignIdsRequest></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"DownloadCampaignsByCampaignIds"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '2127'
+      - '2190'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -76,37 +78,37 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Server:
-      - Microsoft-IIS/8.5
+      - Microsoft-IIS/10.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 22 Jun 2017 12:18:57 GMT
+      - Thu, 24 Jan 2019 11:41:13 GMT
       Content-Length:
       - '253'
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
         xmlns:h="https://bingads.microsoft.com/CampaignManagement/v12">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><DownloadCampaignsByCampaignIdsResponse
-        xmlns="https://bingads.microsoft.com/CampaignManagement/v12"><DownloadRequestId>1099516605693</DownloadRequestId></DownloadCampaignsByCampaignIdsResponse></s:Body></s:Envelope>
+        xmlns="https://bingads.microsoft.com/CampaignManagement/v12"><DownloadRequestId>68731147328</DownloadRequestId></DownloadCampaignsByCampaignIdsResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Thu, 22 Jun 2017 12:18:58 GMT
+  recorded_at: Thu, 24 Jan 2019 11:41:13 GMT
 - request:
     method: post
-    uri: https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V12/BulkService.svc
+    uri: https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V12/BulkService.svc
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/CampaignManagement/v12"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>GetBulkDownloadStatus</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:GetBulkDownloadStatusRequest><tns:RequestId>1099516605693</tns:RequestId></tns:GetBulkDownloadStatusRequest></env:Body></env:Envelope>
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>GetBulkDownloadStatus</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:GetBulkDownloadStatusRequest><tns:RequestId>68731147328</tns:RequestId></tns:GetBulkDownloadStatusRequest></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"GetBulkDownloadStatus"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1668'
+      - '1725'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -125,15 +127,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Server:
-      - Microsoft-IIS/8.5
+      - Microsoft-IIS/10.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 22 Jun 2017 12:18:59 GMT
+      - Thu, 24 Jan 2019 11:41:14 GMT
       Content-Length:
-      - '381'
+      - '379'
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
@@ -144,22 +146,22 @@ http_interactions:
         xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/><PercentComplete>1</PercentComplete><RequestStatus>InProgress</RequestStatus><ResultFileUrl
         i:nil="true" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></GetBulkDownloadStatusResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Thu, 22 Jun 2017 12:18:59 GMT
+  recorded_at: Thu, 24 Jan 2019 11:41:15 GMT
 - request:
     method: post
-    uri: https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V12/BulkService.svc
+    uri: https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V12/BulkService.svc
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/CampaignManagement/v12"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>GetBulkDownloadStatus</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:GetBulkDownloadStatusRequest><tns:RequestId>1099516605693</tns:RequestId></tns:GetBulkDownloadStatusRequest></env:Body></env:Envelope>
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>GetBulkDownloadStatus</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:GetBulkDownloadStatusRequest><tns:RequestId>68731147328</tns:RequestId></tns:GetBulkDownloadStatusRequest></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"GetBulkDownloadStatus"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1668'
+      - '1725'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -178,15 +180,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Server:
-      - Microsoft-IIS/8.5
+      - Microsoft-IIS/10.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 22 Jun 2017 12:21:00 GMT
+      - Thu, 24 Jan 2019 11:43:14 GMT
       Content-Length:
-      - '570'
+      - '571'
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
@@ -194,12 +196,12 @@ http_interactions:
         xmlns="https://bingads.microsoft.com/CampaignManagement/v12"><Errors i:nil="true"
         xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/><ForwardCompatibilityMap
         xmlns:a="http://schemas.datacontract.org/2004/07/System.Collections.Generic"
-        xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/><PercentComplete>100</PercentComplete><RequestStatus>Completed</RequestStatus><ResultFileUrl>https://bingadsappsstorageprod.blob.core.windows.net/bulkdownloadresultfiles/DownloadHierarchy-1099516605693-aaedfaea-a79f-4b45-b290-74e27d43567e.zip?sv=2015-12-11&amp;sr=b&amp;sig=%2FdAHo6SsiwofOyxrUs3J6dLg6AHf5figxtZYmNwB%2BIM%3D&amp;st=2017-06-22T12%3A16%3A00Z&amp;se=2017-06-22T12%3A41%3A00Z&amp;sp=rl</ResultFileUrl></GetBulkDownloadStatusResponse></s:Body></s:Envelope>
+        xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/><PercentComplete>100</PercentComplete><RequestStatus>Completed</RequestStatus><ResultFileUrl>https://bingadsappsstoragesi.blob.core.windows.net/bulkdownloadresultfiles/DownloadHierarchy-68731147328-61bd83e9-acb0-4bd3-bb1e-b874e7234101.zip?sv=2015-12-11&amp;sr=b&amp;sig=lOwZ3CVoGPtHKWCBxUOp1ktsIsPJlNzjo%2Fm9R0BiKPg%3D&amp;st=2019-01-24T11%3A38%3A15Z&amp;se=2019-01-24T12%3A03%3A15Z&amp;sp=rl</ResultFileUrl></GetBulkDownloadStatusResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Thu, 22 Jun 2017 12:21:00 GMT
+  recorded_at: Thu, 24 Jan 2019 11:43:15 GMT
 - request:
     method: get
-    uri: https://bingadsappsstorageprod.blob.core.windows.net/bulkdownloadresultfiles/DownloadHierarchy-1099516605693-aaedfaea-a79f-4b45-b290-74e27d43567e.zip?se=2017-06-22T12:41:00Z&sig=/dAHo6SsiwofOyxrUs3J6dLg6AHf5figxtZYmNwB%2BIM=&sp=rl&sr=b&st=2017-06-22T12:16:00Z&sv=2015-12-11
+    uri: https://bingadsappsstoragesi.blob.core.windows.net/bulkdownloadresultfiles/DownloadHierarchy-68731147328-61bd83e9-acb0-4bd3-bb1e-b874e7234101.zip?se=2019-01-24T12:03:15Z&sig=lOwZ3CVoGPtHKWCBxUOp1ktsIsPJlNzjo/m9R0BiKPg=&sp=rl&sr=b&st=2019-01-24T11:38:15Z&sv=2015-12-11
     body:
       encoding: US-ASCII
       string: ''
@@ -216,35 +218,33 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '1569'
+      - '1660'
       Content-Type:
       - application/zip
       Content-Md5:
-      - 51GekuSV1kdQv5HXkkb+rQ==
+      - CNegeTzJ/V4g5yXAN7XryA==
       Last-Modified:
-      - Thu, 22 Jun 2017 12:19:00 GMT
+      - Thu, 24 Jan 2019 11:41:16 GMT
       Accept-Ranges:
       - bytes
       Etag:
-      - '"0x8D4B968DD418BE6"'
-      Vary:
-      - Origin
+      - '"0x8D681F0D9E6A464"'
       Server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       X-Ms-Request-Id:
-      - cf8663b8-0001-0106-5c52-eb8a02000000
+      - '04593187-101e-00bc-5cd9-b32c5e000000'
       X-Ms-Version:
       - '2015-12-11'
       X-Ms-Meta-Retentionlookupkey:
-      - MultiAccountDownloadProd
+      - MultiAccountDownloadSI
       X-Ms-Meta-Trackingid:
-      - 1867232c-8eb6-439e-b197-1276cb140f9f
+      - 55fb8ef4-c931-4404-867e-46ff55701ca2
       X-Ms-Meta-Requestid:
-      - 6d073aa2-7a27-451c-9606-a6298860514f
+      - 10dc9c9c-2500-4291-9478-69b50379f94d
       X-Ms-Meta-Sessionid:
-      - 6d073aa2-7a27-451c-9606-a6298860514f
+      - 10dc9c9c-2500-4291-9478-69b50379f94d
       X-Ms-Meta-Creatormachinename:
-      - EAP010040205023
+      - BN2BEAP00000AF9
       X-Ms-Lease-Status:
       - unlocked
       X-Ms-Lease-State:
@@ -252,49 +252,19 @@ http_interactions:
       X-Ms-Blob-Type:
       - BlockBlob
       Content-Disposition:
-      - attachment;filename=DownloadHierarchy-1099516605693-aaedfaea-a79f-4b45-b290-74e27d43567e.zip
+      - attachment;filename=DownloadHierarchy-68731147328-61bd83e9-acb0-4bd3-bb1e-b874e7234101.zip
       X-Ms-Server-Encrypted:
-      - 'false'
+      - 'true'
+      Access-Control-Expose-Headers:
+      - x-ms-request-id,Server,x-ms-version,x-ms-meta-RetentionLookupKey,x-ms-meta-TrackingId,x-ms-meta-RequestId,x-ms-meta-SessionId,x-ms-meta-CreatorMachineName,Content-Type,Last-Modified,ETag,Content-MD5,x-ms-lease-status,x-ms-lease-state,x-ms-blob-type,Content-Disposition,x-ms-server-encrypted,Accept-Ranges,Content-Length,Date,Transfer-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
       Date:
-      - Thu, 22 Jun 2017 12:21:01 GMT
+      - Thu, 24 Jan 2019 11:43:15 GMT
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        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
-        AAAA
+        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
     http_version: 
-  recorded_at: Thu, 22 Jun 2017 12:21:01 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Thu, 24 Jan 2019 11:43:16 GMT
+recorded_with: VCR 4.0.0

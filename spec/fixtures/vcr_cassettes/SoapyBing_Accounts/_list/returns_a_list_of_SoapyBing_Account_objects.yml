@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://login.live.com/oauth20_token.srf
+    uri: https://login.live-int.com/oauth20_token.srf
     body:
       encoding: UTF-8
       string: client_id=bing-ads-oauth-client-id&client_secret=bing-ads-oauth-client-secret&grant_type=refresh_token&refresh_token=bing-ads-oauth-refresh-token
@@ -22,12 +22,14 @@ http_interactions:
       - no-store
       Pragma:
       - no-cache
-      Content-Length:
-      - '1509'
       Content-Type:
       - application/json
       Server:
       - Microsoft-IIS/8.5
+      Liveidtestresp:
+      - ''
+      Ppserver:
+      - 'PPV: 30 H: BY2INTIDSLGN12 V: 0'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -35,17 +37,17 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 05 Jun 2017 15:01:55 GMT
-      Connection:
-      - close
+      - Thu, 24 Jan 2019 11:47:31 GMT
+      Content-Length:
+      - '1630'
     body:
       encoding: UTF-8
       string: '{"token_type":"bearer","expires_in":3600,"scope":"bingads.manage","access_token":"bing-ads-oauth-authentication-token","refresh_token":"bing-ads-oauth-refresh-token","user_id":"bing-ads-oauth-user-id"}'
     http_version: 
-  recorded_at: Mon, 05 Jun 2017 15:01:55 GMT
+  recorded_at: Thu, 24 Jan 2019 11:47:32 GMT
 - request:
     method: post
-    uri: https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v12/CustomerManagementService.svc
+    uri: https://clientcenter.api.sandbox.bingads.microsoft.com/Api/CustomerManagement/v12/CustomerManagementService.svc
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -57,7 +59,7 @@ http_interactions:
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1596'
+      - '1655'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -76,25 +78,23 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Server:
-      - Microsoft-IIS/8.5
+      - Microsoft-IIS/10.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
       Date:
-      - Mon, 05 Jun 2017 15:01:56 GMT
+      - Thu, 24 Jan 2019 11:47:33 GMT
       Content-Length:
-      - '589'
+      - '492'
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
         xmlns:h="https://bingads.microsoft.com/Customer/v12">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><GetAccountsInfoResponse
         xmlns="https://bingads.microsoft.com/Customer/v12"><AccountsInfo xmlns:a="https://bingads.microsoft.com/Customer/v12/Entities"
         xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><a:AccountInfo><a:Id>bing-ads-account-id</a:Id><a:Name>ad2games
-        GmbH</a:Name><a:Number>X000F9Z7</a:Number><a:AccountLifeCycleStatus>Active</a:AccountLifeCycleStatus><a:PauseReason
-        i:nil="true"/></a:AccountInfo><a:AccountInfo><a:Id>2222222</a:Id><a:Name>SuperBrowserGames.com</a:Name><a:Number>X000K92F</a:Number><a:AccountLifeCycleStatus>Active</a:AccountLifeCycleStatus><a:PauseReason
-        i:nil="true"/></a:AccountInfo><a:AccountInfo><a:Id>33333333</a:Id><a:Name>Wildworks.com</a:Name><a:Number>B008CXY6</a:Number><a:AccountLifeCycleStatus>Active</a:AccountLifeCycleStatus><a:PauseReason
+        GmbH</a:Name><a:Number>E104QLZN</a:Number><a:AccountLifeCycleStatus>Pending</a:AccountLifeCycleStatus><a:PauseReason
         i:nil="true"/></a:AccountInfo></AccountsInfo></GetAccountsInfoResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Mon, 05 Jun 2017 15:01:56 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Thu, 24 Jan 2019 11:47:33 GMT
+recorded_with: VCR 4.0.0

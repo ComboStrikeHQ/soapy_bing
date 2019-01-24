@@ -7,6 +7,7 @@ module SoapyBing
     class TokenRefreshError < StandardError; end
 
     TOKEN_URL = 'https://login.live.com/oauth20_token.srf'
+    SANDBOX_TOKEN_URL = 'https://login.live-int.com/oauth20_token.srf'
 
     attr_reader :client_id, :client_secret, :refresh_token, :token_url
 
@@ -30,6 +31,10 @@ module SoapyBing
       raise TokenRefreshError unless resp.code == 200
 
       resp['access_token']
+    end
+
+    def token_url
+      ENV['BING_ADS_SANDBOX'] == '1' ? SANDBOX_TOKEN_URL : TOKEN_URL
     end
 
     def access_token_params
