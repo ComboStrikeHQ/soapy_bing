@@ -5,6 +5,7 @@ Dotenv.load('.env.local', '.env')
 require 'soapy_bing'
 
 desc 'Fetch Bing Ads wsdl files and store them'
+# rubocop:disable Metrics/BlockLength
 task :update_wsdl_files do
   SERVICES = {
     ad_insight: 'https://adinsight.api.bingads.microsoft.com/Api/Advertiser/AdInsight/v12/AdInsightService.svc?wsdl',
@@ -22,7 +23,7 @@ task :update_wsdl_files do
     customer_billing: 'https://clientcenter.api.sandbox.bingads.microsoft.com/Api/Billing/v12/CustomerBillingService.svc?wsdl',
     customer_management: 'https://clientcenter.api.sandbox.bingads.microsoft.com/Api/CustomerManagement/V12/CustomerManagementService.svc?wsdl',
     reporting: 'https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/v12/ReportingService.svc?wsdl'
-  }
+  }.freeze
 
   SERVICES.each do |service, wsdl_url|
     File.open(SoapyBing::Service.local_wsdl_path_for(service, sandbox: false), 'wb') do |file|
@@ -36,3 +37,4 @@ task :update_wsdl_files do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

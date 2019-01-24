@@ -27,13 +27,12 @@ RSpec.describe SoapyBing::Ads do
       let(:campaign_ids) { [90868686, 90876598] }
 
       it 'returns parsed rows' do
-          c = ads.campaigns(
+        expect(
+          ads.campaigns(
             entities,
             campaign_ids: campaign_ids,
             polling_settings: polling_settings
           )
-        expect(
-          c
         ).to eq fixtured_payload('campaigns_by_campaign_ids')
       end
     end
