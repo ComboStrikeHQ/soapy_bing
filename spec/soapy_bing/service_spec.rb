@@ -67,7 +67,7 @@ RSpec.describe SoapyBing::Service do
       it 'returns the regular WSDL path' do
         expect(described_class.local_wsdl_path_for('something')).to eq(
           File.expand_path(
-            File.join(__dir__, '..', '..', 'lib', 'soapy_bing', 'wsdl', "something.wsdl")
+            File.join(__dir__, '..', '..', 'lib', 'soapy_bing', 'wsdl', 'something.wsdl')
           )
         )
       end
@@ -81,7 +81,7 @@ RSpec.describe SoapyBing::Service do
       it 'returns the sandbox WSDL path' do
         expect(described_class.local_wsdl_path_for('something')).to eq(
           File.expand_path(
-            File.join(__dir__, '..', 'wsdl', "something.wsdl")
+            File.join(__dir__, '..', 'wsdl', 'something.wsdl')
           )
         )
       end
