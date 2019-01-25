@@ -37,14 +37,14 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Thu, 24 Jan 2019 12:04:45 GMT
+      - Fri, 25 Jan 2019 13:53:18 GMT
       Content-Length:
-      - '1630'
+      - '1606'
     body:
       encoding: UTF-8
       string: '{"token_type":"bearer","expires_in":3600,"scope":"bingads.manage","access_token":"bing-ads-oauth-authentication-token","refresh_token":"bing-ads-oauth-refresh-token","user_id":"bing-ads-oauth-user-id"}'
     http_version: 
-  recorded_at: Thu, 24 Jan 2019 12:04:45 GMT
+  recorded_at: Fri, 25 Jan 2019 13:53:18 GMT
 - request:
     method: post
     uri: https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/V12/ReportingService.svc
@@ -54,14 +54,14 @@ http_interactions:
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/Reporting/v12"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>SubmitGenerateReport</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:SubmitGenerateReportRequest><tns:ReportRequest
         xsi:type="tns:CampaignPerformanceReportRequest"><tns:Format>Csv</tns:Format><tns:Language>English</tns:Language><tns:ReportName>MyReport</tns:ReportName><tns:ReturnOnlyCompletedData>false</tns:ReturnOnlyCompletedData><tns:Aggregation>Hourly</tns:Aggregation><tns:Columns><tns:CampaignPerformanceReportColumn>CampaignName</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>TimePeriod</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>Impressions</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>Clicks</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>Spend</tns:CampaignPerformanceReportColumn></tns:Columns><tns:Scope><tns:AccountIds
-        xmlns:a1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a1:long>bing-ads-account-id</a1:long></tns:AccountIds></tns:Scope><tns:Time><tns:CustomDateRangeEnd><tns:Day>22</tns:Day><tns:Month>1</tns:Month><tns:Year>2019</tns:Year></tns:CustomDateRangeEnd><tns:CustomDateRangeStart><tns:Day>22</tns:Day><tns:Month>1</tns:Month><tns:Year>2019</tns:Year></tns:CustomDateRangeStart></tns:Time></tns:ReportRequest></tns:SubmitGenerateReportRequest></env:Body></env:Envelope>
+        xmlns:a1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a1:long>bing-ads-account-id</a1:long></tns:AccountIds></tns:Scope><tns:Time><tns:CustomDateRangeEnd><tns:Day>22</tns:Day><tns:Month>1</tns:Month><tns:Year>2019</tns:Year></tns:CustomDateRangeEnd><tns:CustomDateRangeStart><tns:Day>22</tns:Day><tns:Month>1</tns:Month><tns:Year>2019</tns:Year></tns:CustomDateRangeStart></tns:Time><tns:ReportTimeZone>GreenwichMeanTimeDublinEdinburghLisbonLondon</tns:ReportTimeZone></tns:ReportRequest></tns:SubmitGenerateReportRequest></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"SubmitGenerateReport"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '2830'
+      - '2915'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -82,16 +82,16 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 24 Jan 2019 12:04:47 GMT
+      - Fri, 25 Jan 2019 13:53:20 GMT
       Content-Length:
-      - '342'
+      - '344'
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
         xmlns:h="https://bingads.microsoft.com/Reporting/v12">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><SubmitGenerateReportResponse
         xmlns="https://bingads.microsoft.com/Reporting/v12"><ReportRequestId>bing-ads-report-request-id</ReportRequestId></SubmitGenerateReportResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Thu, 24 Jan 2019 12:04:47 GMT
+  recorded_at: Fri, 25 Jan 2019 13:53:20 GMT
 - request:
     method: post
     uri: https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/V12/ReportingService.svc
@@ -127,9 +127,9 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 24 Jan 2019 12:04:48 GMT
+      - Fri, 25 Jan 2019 13:53:20 GMT
       Content-Length:
-      - '407'
+      - '408'
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
@@ -137,7 +137,7 @@ http_interactions:
         xmlns="https://bingads.microsoft.com/Reporting/v12"><ReportRequestStatus xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ReportDownloadUrl
         i:nil="true"/><Status>Pending</Status></ReportRequestStatus></PollGenerateReportResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Thu, 24 Jan 2019 12:04:48 GMT
+  recorded_at: Fri, 25 Jan 2019 13:53:21 GMT
 - request:
     method: post
     uri: https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/V12/ReportingService.svc
@@ -173,9 +173,9 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 24 Jan 2019 12:06:49 GMT
+      - Fri, 25 Jan 2019 13:55:23 GMT
       Content-Length:
-      - '409'
+      - '408'
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
@@ -183,5 +183,5 @@ http_interactions:
         xmlns="https://bingads.microsoft.com/Reporting/v12"><ReportRequestStatus xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ReportDownloadUrl
         i:nil="true"/><Status>Success</Status></ReportRequestStatus></PollGenerateReportResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Thu, 24 Jan 2019 12:06:49 GMT
+  recorded_at: Fri, 25 Jan 2019 13:55:23 GMT
 recorded_with: VCR 4.0.0

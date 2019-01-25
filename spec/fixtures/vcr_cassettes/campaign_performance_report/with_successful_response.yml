@@ -29,7 +29,7 @@ http_interactions:
       Liveidtestresp:
       - ''
       Ppserver:
-      - 'PPV: 30 H: BY2INTIDSLGN12 V: 0'
+      - 'PPV: 30 H: BY2INTIDSLGN11 V: 0'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -37,14 +37,14 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Thu, 24 Jan 2019 11:56:16 GMT
+      - Fri, 25 Jan 2019 13:55:24 GMT
       Content-Length:
-      - '1638'
+      - '1606'
     body:
       encoding: UTF-8
       string: '{"token_type":"bearer","expires_in":3600,"scope":"bingads.manage","access_token":"bing-ads-oauth-authentication-token","refresh_token":"bing-ads-oauth-refresh-token","user_id":"bing-ads-oauth-user-id"}'
     http_version: 
-  recorded_at: Thu, 24 Jan 2019 11:56:17 GMT
+  recorded_at: Fri, 25 Jan 2019 13:55:24 GMT
 - request:
     method: post
     uri: https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/V12/ReportingService.svc
@@ -54,14 +54,14 @@ http_interactions:
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="https://bingads.microsoft.com/Reporting/v12"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><tns:Action>SubmitGenerateReport</tns:Action><tns:AuthenticationToken>bing-ads-oauth-authentication-token</tns:AuthenticationToken><tns:DeveloperToken>bing-ads-developer-token</tns:DeveloperToken><tns:CustomerAccountId>bing-ads-account-id</tns:CustomerAccountId></env:Header><env:Body><tns:SubmitGenerateReportRequest><tns:ReportRequest
         xsi:type="tns:CampaignPerformanceReportRequest"><tns:Format>Csv</tns:Format><tns:Language>English</tns:Language><tns:ReportName>MyReport</tns:ReportName><tns:ReturnOnlyCompletedData>false</tns:ReturnOnlyCompletedData><tns:Aggregation>Hourly</tns:Aggregation><tns:Columns><tns:CampaignPerformanceReportColumn>CampaignName</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>TimePeriod</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>Impressions</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>Clicks</tns:CampaignPerformanceReportColumn><tns:CampaignPerformanceReportColumn>Spend</tns:CampaignPerformanceReportColumn></tns:Columns><tns:Scope><tns:AccountIds
-        xmlns:a1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a1:long>bing-ads-account-id</a1:long></tns:AccountIds></tns:Scope><tns:Time><tns:CustomDateRangeEnd><tns:Day>23</tns:Day><tns:Month>1</tns:Month><tns:Year>2019</tns:Year></tns:CustomDateRangeEnd><tns:CustomDateRangeStart><tns:Day>23</tns:Day><tns:Month>1</tns:Month><tns:Year>2019</tns:Year></tns:CustomDateRangeStart></tns:Time></tns:ReportRequest></tns:SubmitGenerateReportRequest></env:Body></env:Envelope>
+        xmlns:a1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a1:long>bing-ads-account-id</a1:long></tns:AccountIds></tns:Scope><tns:Time><tns:CustomDateRangeEnd><tns:Day>23</tns:Day><tns:Month>1</tns:Month><tns:Year>2019</tns:Year></tns:CustomDateRangeEnd><tns:CustomDateRangeStart><tns:Day>23</tns:Day><tns:Month>1</tns:Month><tns:Year>2019</tns:Year></tns:CustomDateRangeStart></tns:Time><tns:ReportTimeZone>GreenwichMeanTimeDublinEdinburghLisbonLondon</tns:ReportTimeZone></tns:ReportRequest></tns:SubmitGenerateReportRequest></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"SubmitGenerateReport"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '2838'
+      - '2915'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -82,7 +82,7 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 24 Jan 2019 11:56:19 GMT
+      - Fri, 25 Jan 2019 13:55:26 GMT
       Content-Length:
       - '343'
     body:
@@ -91,7 +91,7 @@ http_interactions:
         xmlns:h="https://bingads.microsoft.com/Reporting/v12">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><SubmitGenerateReportResponse
         xmlns="https://bingads.microsoft.com/Reporting/v12"><ReportRequestId>bing-ads-report-request-id</ReportRequestId></SubmitGenerateReportResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Thu, 24 Jan 2019 11:56:19 GMT
+  recorded_at: Fri, 25 Jan 2019 13:55:26 GMT
 - request:
     method: post
     uri: https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/V12/ReportingService.svc
@@ -106,7 +106,7 @@ http_interactions:
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1733'
+      - '1725'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -127,7 +127,7 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 24 Jan 2019 11:56:21 GMT
+      - Fri, 25 Jan 2019 13:55:26 GMT
       Content-Length:
       - '406'
     body:
@@ -137,7 +137,7 @@ http_interactions:
         xmlns="https://bingads.microsoft.com/Reporting/v12"><ReportRequestStatus xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ReportDownloadUrl
         i:nil="true"/><Status>Pending</Status></ReportRequestStatus></PollGenerateReportResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Thu, 24 Jan 2019 11:56:21 GMT
+  recorded_at: Fri, 25 Jan 2019 13:55:27 GMT
 - request:
     method: post
     uri: https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/V12/ReportingService.svc
@@ -152,7 +152,7 @@ http_interactions:
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1733'
+      - '1725'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -173,16 +173,16 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 24 Jan 2019 11:58:22 GMT
+      - Fri, 25 Jan 2019 13:57:29 GMT
       Content-Length:
-      - '1345'
+      - '1341'
     body:
       encoding: ASCII-8BIT
       string: <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><h:TrackingId
         xmlns:h="https://bingads.microsoft.com/Reporting/v12">bing-ads-report-tracking-id</h:TrackingId></s:Header><s:Body><PollGenerateReportResponse
         xmlns="https://bingads.microsoft.com/Reporting/v12"><ReportRequestStatus xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ReportDownloadUrl>https://dvsrdl.api.si.bingads.microsoft.com/ReportDownload/Download.aspx?q=bing-ads-report-download-id</ReportDownloadUrl><Status>Success</Status></ReportRequestStatus></PollGenerateReportResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Thu, 24 Jan 2019 11:58:22 GMT
+  recorded_at: Fri, 25 Jan 2019 13:57:29 GMT
 - request:
     method: get
     uri: https://dvsrdl.api.si.bingads.microsoft.com/ReportDownload/Download.aspx?q=bing-ads-report-download-id
@@ -204,7 +204,7 @@ http_interactions:
       Cache-Control:
       - private
       Content-Length:
-      - '679'
+      - '680'
       Content-Type:
       - application/x-zip-compressed
       Server:
@@ -216,11 +216,11 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 24 Jan 2019 11:58:23 GMT
+      - Fri, 25 Jan 2019 13:57:29 GMT
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        UEsDBBQAAAAIAAsfOE7/P/V2UQEAACECAAAVAFIAMzAwMDAwMDAwMDAxMTg4MzcuY3N2TlUwAE5VQ1gVADMAMAAwADAAMAAwADAAMAAwADAAMAAxADEAOAA4ADMANwAuAGMAcwB2AHVwGgABxWW2mzMwMDAwMDAwMDAwMTE4ODM3LmNzdoWRz04CMRDG7ya+w8hJIoEti6h7WzEqiWsIEA/eyu64NPTPpi0QEl/IZ/Bg4gv5Ck6LGk96me3M1+k3v9mP17fWFBtjPdxzhRkUu33aOjz4FuYiCKzXT3v9hF0EJZTg0WiqH98U85OEZUnShlw5j7biqgOXaKXQ8UtxahR2YOZNuVoaSfKDQK15eOqOOw8joxqJHivIN1xIvpAIV3wXXQfRFRjLBgm5QF5Ez/afzbdmbf/t/uLL69pizb0wOouNcvdLvRaSmDIIpYnxqL3gEsa6/HKlOT3PwNs1xi6zdWRMR0pGXDVc1DqsttWJW5ugFaaiZKwai86RqaNsJEW5CodZg7qKaMasgHtQOyB/KwLVFhdOeDyiez+/A1ifuPZoz4yRdJYOKKbnQ4rDpJue7od5f4nXC1Fa48xT2JslwsjdhVxKsKJeegc0FtoNVt3A/AlQSwECLQAUAAAACAALHzhO/z/1dlEBAAAhAgAAFQB4AAAAAAAAAAAAAAAAAAAAMzAwMDAwMDAwMDAxMTg4MzcuY3N2TlUyAE5VQ1gVAAAAMwAwADAAMAAwADAAMAAwADAAMAAwADEAMQA4ADgAMwA3AC4AYwBzAHYACgAgAAAAAAABABgA4mvN09uz1AHia83T27PUAeJrzdPbs9QBdXAaAAHFZbabMzAwMDAwMDAwMDAxMTg4MzcuY3N2UEsFBgAAAAABAAEAuwAAANYBAAAAAA==
+        UEsDBBQAAAAIAO4uOU4fitkBUgEAAB8CAAAVAFIAMzAwMDAwMDAwMDE1NjI4MDEuY3N2TlUwAE5VQ1gVADMAMAAwADAAMAAwADAAMAAwADAAMQA1ADYAMgA4ADAAMQAuAGMAcwB2AHVwGgABcOymrzMwMDAwMDAwMDAxNTYyODAxLmNzdoWRz07CQBDG7ya+w8hJIoGWCmpvFaOSWEOAePC2tGPZsH+a3QXSxBfyGTiY+EK+grMLGk96me7Mt7Pf/Kafu/fWFGttHDwyiSnkzT5tHR99C3PuhbjXT3r9KL7yii/Bs1ZUP73L52dRnEZRGzJpHZqSyQ5coxFchS/FqZbYgZnTxWqpBclPHJVi/qkHZh2MtKwFOiwh2zAu2EIg3LAmuA6CK8RpMiATmOTBsv1n771em/+aD3RZVRmsmONapaFPNL/UWy6IKAVfmmiHynEmYKyKgylN6VgKzqwxdOmtJV86UjJisma8Un6xrU7Y2QQN1yUlY1kbtJZMLWUjwYuVP8xqVGUg03oFzIFsgPwN91BbXFju8ITu/fwMiPvE5dGy/DWOSbpIzikml0OKw6ibDPbDfLyF6zkvjLb6xa/NEGHg7kImBBheLZ0FGgvNBsuuZ/4CUEsBAi0AFAAAAAgA7i45Th+K2QFSAQAAHwIAABUAeAAAAAAAAAAAAAAAAAAAADMwMDAwMDAwMDAxNTYyODAxLmNzdk5VMgBOVUNYFQAAADMAMAAwADAAMAAwADAAMAAwADAAMQA1ADYAMgA4ADAAMQAuAGMAcwB2AAoAIAAAAAAAAQAYADgN8aG1tNQBOA3xobW01AE4DfGhtbTUAXVwGgABcOymrzMwMDAwMDAwMDAxNTYyODAxLmNzdlBLBQYAAAAAAQABALsAAADXAQAAAAA=
     http_version: 
-  recorded_at: Thu, 24 Jan 2019 11:58:24 GMT
+  recorded_at: Fri, 25 Jan 2019 13:57:30 GMT
 recorded_with: VCR 4.0.0

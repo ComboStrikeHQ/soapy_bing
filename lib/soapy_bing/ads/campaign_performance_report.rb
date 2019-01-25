@@ -22,7 +22,8 @@ module SoapyBing
           time: {
             custom_date_range_end: date_hash(date_end),
             custom_date_range_start: date_hash(date_start)
-          }
+          },
+          report_time_zone: settings.report_time_zone
         }
       end
 
