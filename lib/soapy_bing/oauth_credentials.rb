@@ -7,15 +7,15 @@ module SoapyBing
     class TokenRefreshError < StandardError; end
 
     TOKEN_URL = 'https://login.live.com/oauth20_token.srf'
+    SANDBOX_TOKEN_URL = 'https://login.live-int.com/oauth20_token.srf'
 
-    attr_reader :client_id, :client_secret, :refresh_token, :token_url
+    attr_reader :client_id, :client_secret, :refresh_token
 
     def initialize(oauth_options = {})
       param_guard = ParamGuard.new(oauth_options, env_namespace: 'BING_ADS_OAUTH')
       @client_id = param_guard.require!(:client_id)
       @client_secret = param_guard.require!(:client_secret)
       @refresh_token = param_guard.require!(:refresh_token)
-      @token_url = oauth_options.fetch(:token_url, ENV['BING_ADS_OAUTH_TOKEN_URL'] || TOKEN_URL)
     end
 
     def access_token
@@ -30,6 +30,10 @@ module SoapyBing
       raise TokenRefreshError unless resp.code == 200
 
       resp['access_token']
+    end
+
+    def token_url
+      ENV['BING_ADS_SANDBOX'] == '1' ? SANDBOX_TOKEN_URL : TOKEN_URL
     end
 
     def access_token_params

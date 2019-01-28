@@ -39,10 +39,9 @@ RSpec.describe SoapyBing::Ads do
   end
 
   describe '#campaign_performance_report' do
-    let(:date) { '2016-10-14' }
+    let(:date) { '2019-01-22' }
     let(:settings) do
-      # CampaignName is considered to be a sensitive data, lets not record it
-      { columns: %w[TimePeriod Impressions Clicks Spend] }
+      { columns: %w[CampaignName TimePeriod Impressions Clicks Spend] }
     end
     let(:params) do
       {
@@ -61,7 +60,7 @@ RSpec.describe SoapyBing::Ads do
     end
 
     context 'when there is a successful response during polling' do
-      let(:date) { '2017-05-14' }
+      let(:date) { '2019-01-23' }
 
       it 'responds with report rows',
         vcr: { cassette_name: 'campaign_performance_report/with_successful_response' } do

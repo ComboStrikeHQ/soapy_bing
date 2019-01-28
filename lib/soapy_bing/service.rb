@@ -30,8 +30,12 @@ module SoapyBing
         )
       end
 
-      def local_wsdl_path_for(service)
-        File.join(__dir__, 'wsdl', "#{service}.wsdl")
+      def local_wsdl_path_for(service, sandbox: false)
+        if sandbox || ENV['BING_ADS_SANDBOX'] == '1'
+          File.expand_path(File.join(__dir__, '..', '..', 'spec', 'wsdl', "#{service}.wsdl"))
+        else
+          File.expand_path(File.join(__dir__, 'wsdl', "#{service}.wsdl"))
+        end
       end
     end
 

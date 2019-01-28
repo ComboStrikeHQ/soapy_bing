@@ -14,7 +14,8 @@ module SoapyBing
         language:    'English',
         name:        'MyReport',
         aggregation: 'Hourly',
-        columns:     %w[TimePeriod CampaignName Impressions Clicks Spend CampaignId]
+        columns:     %w[TimePeriod CampaignName Impressions Clicks Spend CampaignId],
+        report_time_zone: 'GreenwichMeanTimeDublinEdinburghLisbonLondon'
       }.freeze
 
       DEFAULT_POLLING_SETTINGS = {

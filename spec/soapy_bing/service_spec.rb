@@ -53,4 +53,32 @@ RSpec.describe SoapyBing::Service do
       expect(service).not_to respond_to(:answer_to_life_universe_and_everything)
     end
   end
+
+  describe '.local_wsdl_path_for' do
+    before do
+      allow(ENV).to receive(:[]).and_call_original
+    end
+
+    context 'without BING_ADS_SANDBOX set to 1' do
+      before do
+        allow(ENV).to receive(:[]).with('BING_ADS_SANDBOX').and_return(nil)
+      end
+
+      it 'returns the regular WSDL path' do
+        expect(File.read(described_class.local_wsdl_path_for('reporting')))
+          .to include('reporting.api.bingads.microsoft.com')
+      end
+    end
+
+    context 'with BING_ADS_SANDBOX set to 1' do
+      before do
+        allow(ENV).to receive(:[]).with('BING_ADS_SANDBOX').and_return('1')
+      end
+
+      it 'returns the sandbox WSDL path' do
+        expect(File.read(described_class.local_wsdl_path_for('reporting')))
+          .to include('reporting.api.sandbox.bingads.microsoft.com')
+      end
+    end
+  end
 end

@@ -7,7 +7,7 @@ RSpec.describe SoapyBing::Accounts do
     subject(:list) { instance.list }
 
     it 'returns a list of SoapyBing::Account objects' do
-      expect(list.size).to eq(3)
+      expect(list.size).to eq(1)
       expect(list).to all(be_an_instance_of(SoapyBing::Account))
     end
   end
