@@ -27,7 +27,9 @@ module SoapyBing
     def request_access_token
       resp = HTTParty.post(token_url, body: access_token_params)
 
-      raise TokenRefreshError unless resp.code == 200
+      if resp.code != 200
+        raise TokenRefreshError, "#{resp['error_description']} (#{resp['error']})"
+      end
 
       resp['access_token']
     end

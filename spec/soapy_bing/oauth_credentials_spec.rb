@@ -83,28 +83,37 @@ RSpec.describe SoapyBing::OauthCredentials do
 
   describe '#access_token' do
     let(:credentials) { { client_id: 'foo', client_secret: 'bar', refresh_token: 'baz' } }
-    let(:response) { double(:response) } # rubocop:disable RSpec/VerifiedDoubles
+    let(:response) do
+      HTTParty::Response.new(
+        OpenStruct.new(options: {}),
+        OpenStruct.new(code: status_code),
+        -> { response_body }
+      )
+    end
 
     before do
-      allow(response).to receive(:code).once.and_return(status_code)
       allow(HTTParty).to receive(:post).once.and_return(response)
     end
 
     context 'when there is good response' do
       let(:status_code) { 200 }
+      let(:response_body) { { 'access_token' => 'my-token' } }
 
       it 'memoizes http request response' do
-        expect(response).to receive(:[]).once.with('access_token').and_return('my-token')
         2.times { expect(oauth_credentials.access_token).to eq 'my-token' }
       end
     end
 
     context 'when there is bad response' do
       let(:status_code) { 401 }
+      let(:response_body) do
+        { 'error' => 'my-error', 'error_description' => 'This is my error.' }
+      end
 
       it 'throws exception in case of bad status code' do
         expect { oauth_credentials.access_token }.to raise_error(
-          SoapyBing::OauthCredentials::TokenRefreshError
+          SoapyBing::OauthCredentials::TokenRefreshError,
+          'This is my error. (my-error)'
         )
       end
     end
