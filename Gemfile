@@ -4,5 +4,5 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'rubocop-ci', github: 'ad2games/rubocop-ci'
+gem 'rubocop-ci', github: 'ComboStrikeHQ/rubocop-ci'
 gem 'simplecov', require: false
